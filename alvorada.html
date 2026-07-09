@@ -274,8 +274,9 @@ footer b{color:#fff}
 <!-- SENSITIVITY -->
 <section class="blk">
   <div class="toggle" id="senstoggle">
-    <button data-m="profit" class="on">Net profit</button>
-    <button data-m="irr">IRR</button>
+    <button data-m="profit" class="on">Project profit</button>
+    <button data-m="irr">Project IRR</button>
+    <button data-m="investor">Investor net</button>
   </div>
   <h2 class="sec">Sensitivity &nbsp;&middot;&nbsp; exit price and time to sell</h2>
   <div class="svgwrap" id="sensgrid"></div>
@@ -434,10 +435,11 @@ function heatColor(t){t=Math.max(0,Math.min(1,t));var c0=[234,246,250],c1=[0,140
 function drawSensGrid(o){
   var exits=[14000000,14500000,15000000,15500000,16000000,16500000,17000000];
   var times=[6,7,8,9,10,11,12];
-  var vals=[],flat=[];
-  for(var ti=0;ti<times.length;ti++){vals[ti]=[];for(var ei=0;ei<exits.length;ei++){
+  var objs=[],flat=[];
+  for(var ti=0;ti<times.length;ti++){objs[ti]=[];for(var ei=0;ei<exits.length;ei++){
     var r=calc({purchase:o.purchase,reno:o.reno,ext:o.ext,exit:exits[ei],hold:times[ti]});
-    var v=sensMode=="profit"?r.profit:r.irr;vals[ti][ei]=v;flat.push(v);}}
+    objs[ti][ei]=r;
+    flat.push(sensMode=="profit"?r.profit:sensMode=="irr"?r.irr:r.invIRR);}}
   var mn=Math.min.apply(null,flat),mx=Math.max.apply(null,flat);
   var curExit=Math.round(o.exit/500000)*500000;
   var html='<table class="hm"><thead><tr><th>Sell time \\ Exit</th>';
@@ -446,10 +448,15 @@ function drawSensGrid(o){
   for(var ti=0;ti<times.length;ti++){
     html+='<tr><td class="rh">'+times[ti]+' mo</td>';
     for(var ei=0;ei<exits.length;ei++){
-      var v=vals[ti][ei],t=(v-mn)/((mx-mn)||1);
-      var txt=sensMode=="profit"?fmtM(v):pct(v);
-      var col=v<0?"#9FB6C2":heatColor(t);var tc=(v>=0&&t>0.62)?"#fff":"#1A1F26";
+      var r=objs[ti][ei];
+      var prim=sensMode=="profit"?r.profit:sensMode=="irr"?r.irr:r.invIRR;
+      var t=(prim-mn)/((mx-mn)||1);
+      var col=prim<0?"#9FB6C2":heatColor(t);var tc=(prim>=0&&t>0.62)?"#fff":"#1A1F26";
       var cur=(exits[ei]==curExit&&times[ti]==o.hold)?"cur":"";
+      var txt;
+      if(sensMode=="profit")txt=fmtM(r.profit);
+      else if(sensMode=="irr")txt=pct(r.irr);
+      else txt=pct(r.invIRR)+'<div style="font-size:9.5px;font-weight:600;opacity:.85">'+fmtM(r.invShare)+'</div>';
       html+='<td class="'+cur+'" style="background:'+col+';color:'+tc+'">'+txt+'</td>';
     }
     html+='</tr>';
@@ -457,11 +464,11 @@ function drawSensGrid(o){
   html+='</tbody></table>';
   $('sensgrid').innerHTML=html;
   var cur=calc(o);
-  $('sensnote').textContent="Rows = months to sell (holding cost scales with time), columns = exit price. At "
-    +fmt(o.exit)+" exit over "+o.hold+" months: net profit "+fmt(cur.profit)+", IRR "+pct(cur.irr)
-    +". Purchase held at "+fmt(o.purchase)+". Navy outline marks your current inputs when within the grid.";
+  if(sensMode=="investor")
+    $('sensnote').textContent="Investor totals after the Al Mulla JV waterfall. Each cell shows the investor net IRR (top) and net profit (bottom), after the operator promote at that project-IRR band. As returns cross a band the split steps automatically. At "+fmt(o.exit)+" over "+o.hold+" months: investor net IRR "+pct(cur.invIRR)+", net profit "+fmt(cur.invShare)+".";
+  else
+    $('sensnote').textContent="Rows = months to sell (holding cost scales with time), columns = exit price. At "+fmt(o.exit)+" exit over "+o.hold+" months: project net profit "+fmt(cur.profit)+", IRR "+pct(cur.irr)+". Purchase held at "+fmt(o.purchase)+". Navy outline marks your current inputs.";
 }
-
 function drawComps(o){
   var s=$('comps');s.innerHTML="";
   var W=1080,H=340,ml=76,mr=24,mt=16,mb=52,x0=3500,x1=5200,y0=6000000,y1=17500000;

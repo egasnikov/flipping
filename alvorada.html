@@ -108,6 +108,13 @@ tr.twin td{background:var(--tealtint);font-weight:700;color:var(--navy)}
 .risk th{background:var(--navy2);color:#fff;text-align:left;padding:8px 10px;font-size:11px}
 .risk td{padding:9px 10px;border-bottom:1px solid var(--panel);vertical-align:top}
 .risk td:first-child{font-weight:700;color:var(--navy);width:34%}
+.wfset{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-top:14px;background:var(--panel)}
+.wfhdr{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--mute);margin-bottom:8px}
+.wfhdr span{font-weight:600;text-transform:none;letter-spacing:0}
+.wfgrid{display:flex;flex-wrap:wrap;gap:9px 18px}
+.wfgrid label{font-size:12px;color:var(--navy);font-weight:600;display:flex;align-items:center;gap:5px}
+.wfgrid input{width:52px;text-align:right;padding:3px 5px;border:1px solid var(--line);border-radius:5px;font-size:12px;font-variant-numeric:tabular-nums}
+.wfgrid i{font-style:normal;color:var(--mute);font-weight:600}
 .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:12px;margin-top:6px}
 @media(max-width:820px){.flow{grid-template-columns:1fr}}
 .fstep{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff;border-top:3px solid var(--teal)}
@@ -275,18 +282,28 @@ footer b{color:#fff}
 
 <!-- PROFIT DISTRIBUTION -->
 <section class="blk">
-  <h2 class="sec">Profit distribution &nbsp;&middot;&nbsp; Al Mulla JV waterfall</h2>
-  <p>The investor funds 100% of the capital. Profit is split on the project's annualised IRR, stepping the operator's share up as returns rise. This mirrors the Palm &amp; Peak / Al Mulla collaboration agreement in place on Sunrise Bay Tower 2.</p>
+  <h2 class="sec">Profit distribution &nbsp;&middot;&nbsp; LP / GP waterfall</h2>
+  <p>The LP funds 100% of the capital. Profit is split on the project's annualised IRR under a standard LP / GP waterfall, stepping the GP's promote up as returns rise.</p>
   <div class="kpis">
-    <div class="kpi hero"><div class="k">Investor profit share</div><div class="v" id="d_inv"></div><div class="s" id="d_invpct" style="color:#9FB6C2"></div></div>
-    <div class="kpi accent"><div class="k">Investor net IRR</div><div class="v" id="d_invirr"></div><div class="s" id="d_invmult"></div></div>
-    <div class="kpi accent"><div class="k">Operator promote</div><div class="v" id="d_promote"></div><div class="s" id="d_oppct"></div></div>
-    <div class="kpi"><div class="k">Operator total</div><div class="v" id="d_optot"></div><div class="s">promote + mgmt fee</div></div>
+    <div class="kpi hero"><div class="k">LP profit share</div><div class="v" id="d_inv"></div><div class="s" id="d_invpct" style="color:#9FB6C2"></div></div>
+    <div class="kpi accent"><div class="k">LP net IRR</div><div class="v" id="d_invirr"></div><div class="s" id="d_invmult"></div></div>
+    <div class="kpi accent"><div class="k">GP promote</div><div class="v" id="d_promote"></div><div class="s" id="d_oppct"></div></div>
+    <div class="kpi"><div class="k">GP total</div><div class="v" id="d_optot"></div><div class="s">promote + mgmt fee</div></div>
     <div class="kpi"><div class="k">Active IRR band</div><div class="v" id="d_band" style="font-size:17px"></div><div class="s">of project IRR</div></div>
-    <div class="kpi"><div class="k">Management fee</div><div class="v" id="d_mgmt"></div><div class="s">to operator, at acquisition</div></div>
+    <div class="kpi"><div class="k">Management fee</div><div class="v" id="d_mgmt"></div><div class="s">to GP, at acquisition</div></div>
+  </div>
+  <div class="wfset">
+    <div class="wfhdr">Waterfall settings <span>- adjust the LP / GP split live</span></div>
+    <div class="wfgrid">
+      <label>Preferred return (LP) <input id="wf_pref" value="8.0"><i>%</i></label>
+      <label>GP catch-up <input id="wf_cu" value="100"><i>%</i></label>
+      <label>Carry: IRR up to <input id="wf_t1" value="30"><i>%, GP</i> <input id="wf_g1" value="20"><i>%</i></label>
+      <label>then up to <input id="wf_t2" value="45"><i>%, GP</i> <input id="wf_g2" value="25"><i>%</i></label>
+      <label>above that, GP <input id="wf_g3" value="30"><i>%</i></label>
+    </div>
   </div>
   <div class="card">
-    <h3 class="sub">Net profit split &nbsp;&middot;&nbsp; investor vs operator</h3>
+    <h3 class="sub">Net profit split &nbsp;&middot;&nbsp; LP vs GP</h3>
     <div class="svgwrap"><svg id="splitbar" viewBox="0 0 1080 96" width="100%" height="96"></svg></div>
     <div id="bands"></div>
   </div>
@@ -297,7 +314,7 @@ footer b{color:#fff}
   <div class="toggle" id="senstoggle">
     <button data-m="profit" class="on">Project profit</button>
     <button data-m="irr">Project IRR</button>
-    <button data-m="investor">Investor net</button>
+    <button data-m="investor">LP net</button>
   </div>
   <h2 class="sec">Sensitivity &nbsp;&middot;&nbsp; exit price and time to sell</h2>
   <div class="svgwrap" id="sensgrid"></div>
@@ -392,8 +409,10 @@ function fmt(n){var s=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(
 function fmtM(n){return (n/1e6).toFixed(2)+"M"}
 function pct(n){return (n*100).toFixed(1)+"%"}
 
-function opPct(irr){if(irr<0.10)return 0;if(irr<0.30)return 0.20;if(irr<=0.45)return 0.25;return 0.30;}
-function opBand(irr){if(irr<0.10)return "Under 10%";if(irr<0.30)return "10-29%";if(irr<=0.45)return "30-45%";return "Above 45%";}
+function wfNum(id,d){var e=$(id);if(!e)return d;var v=parseFloat(e.value);return isNaN(v)?d:v;}
+function carryPct(irr){var t1=wfNum('wf_t1',30)/100,t2=wfNum('wf_t2',45)/100,g1=wfNum('wf_g1',20)/100,g2=wfNum('wf_g2',25)/100,g3=wfNum('wf_g3',30)/100;if(irr<=t1)return g1;if(irr<=t2)return g2;return g3;}
+function bandLabel(irr){var t1=wfNum('wf_t1',30),t2=wfNum('wf_t2',45),p=irr*100;if(p<=t1)return "IRR \u2264"+t1+"%";if(p<=t2)return "IRR "+t1+"-"+t2+"%";return "IRR >"+t2+"%";}
+function waterfall(E,P,T,irr){var pref=wfNum('wf_pref',8)/100,cu=wfNum('wf_cu',100)/100,c=carryPct(irr);var LP=0,GP=0,rem=Math.max(P,0);var prefAmt=E*(Math.pow(1+pref,T/12)-1);var p1=Math.min(rem,prefAmt);LP+=p1;rem-=p1;if(rem>0&&cu>c){var xt=c*LP/(cu-c);var x=Math.min(rem,xt);GP+=cu*x;LP+=(1-cu)*x;rem-=x;}GP+=c*rem;LP+=(1-c)*rem;return {LP:LP,GP:GP,carry:c,prefAmt:prefAmt};}
 function calc(o){
   var dld=num('dld')/100,buyag=num('buyag')/100,selag=num('selag')/100;
   var mktg=num('mktg'),dldfix=num('dldfix'),sc=num('sc'),util=num('util'),mgmt=num('mgmt');
@@ -405,11 +424,11 @@ function calc(o){
   var net=o.exit-salecosts;
   var profit=net-equity;
   var irr=Math.pow(net/equity,12/o.hold)-1;
-  var opct=opPct(irr);var promote=profit>0?profit*opct:0;var invShare=profit-promote;
+  var wf=waterfall(equity,profit,o.hold,irr);var promote=wf.GP;var invShare=wf.LP;var opct=wf.carry;var effGp=profit>0?promote/profit:0;
   var opTotal=promote+mgmt;var invMult=(equity+invShare)/equity;var invIRR=Math.pow((equity+invShare)/equity,12/o.hold)-1;
   return {acq:acq,capex:capex,holding:holding,mgmt:mgmt,equity:equity,salecosts:salecosts,net:net,
     profit:profit,roe:profit/equity,irr:irr,mult:net/equity,margin:profit/o.exit,
-    opct:opct,band:opBand(irr),promote:promote,invShare:invShare,opTotal:opTotal,invMult:invMult,invIRR:invIRR};
+    opct:opct,effGp:effGp,band:bandLabel(irr),promote:promote,invShare:invShare,opTotal:opTotal,invMult:invMult,invIRR:invIRR,prefAmt:wf.prefAmt};
 }
 function readInputs(){return {purchase:num('purchase'),reno:num('reno'),ext:num('ext'),exit:num('exit'),hold:num('hold')}}
 function setText(id,t){$(id).textContent=t}
@@ -428,16 +447,16 @@ function render(){
   setText('o_equity',fmt(r.equity));setText('o_acq',fmt(r.acq));setText('o_sale',fmt(r.salecosts));setText('o_net',fmt(r.net));
   setText('e_profit',fmt(r.profit));setText('e_irr',pct(r.irr));setText('e_roe',pct(r.roe));
   setText('e_mult',r.mult.toFixed(2)+"x");setText('e_eq',fmt(r.equity));
-  setText('d_inv',fmt(r.invShare));setText('d_invpct',(r.opct===0?'100%':(100-r.opct*100)+'%')+' of net profit');
+  setText('d_inv',fmt(r.invShare));setText('d_invpct',((1-r.effGp)*100).toFixed(0)+'% of net profit');
   setText('d_invirr',pct(r.invIRR));setText('d_invmult',r.invMult.toFixed(2)+'x equity');
-  setText('d_promote',fmt(r.promote));setText('d_oppct',(r.opct*100)+'% of net profit');
+  setText('d_promote',fmt(r.promote));setText('d_oppct',(r.effGp*100).toFixed(0)+'% of net profit');
   setText('d_optot',fmt(r.opTotal));setText('d_band',r.band+' IRR');setText('d_mgmt',fmt(r.mgmt));
   drawBridge(r,o);drawSplit(r);drawSensGrid(o);drawComps(o);
 }
 function drawSplit(r){
   var s=$('splitbar');s.innerHTML="";
   var x0=20,x1=1060,y=30,h=40,tot=r.profit>0?r.profit:1,x=x0;
-  var segs=[["#051C2C",r.invShare,"Investor "+(100-r.opct*100)+"%"],["#00A9CE",r.promote,"Operator "+(r.opct*100)+"%"]];
+  var segs=[["#051C2C",r.invShare,"LP "+Math.round((1-r.effGp)*100)+"%"],["#00A9CE",r.promote,"GP "+Math.round(r.effGp*100)+"%"]];
   for(var i=0;i<segs.length;i++){
     var w=(x1-x0)*segs[i][1]/tot;if(w<0)w=0;
     var rc=document.createElementNS(NS,"rect");rc.setAttribute("x",x);rc.setAttribute("y",y);rc.setAttribute("width",Math.max(w,0));rc.setAttribute("height",h);rc.setAttribute("fill",segs[i][0]);s.appendChild(rc);
@@ -445,13 +464,13 @@ function drawSplit(r){
     x+=w;
   }
   var cap=document.createElementNS(NS,"text");cap.setAttribute("x",x0);cap.setAttribute("y",y+h+22);cap.setAttribute("font-size","12");cap.setAttribute("fill","#6B7886");
-  cap.textContent="Net profit "+fmt(r.profit)+" split at the "+r.band+" IRR band. Operator also earns the "+fmt(r.mgmt)+" management fee (already in project costs).";s.appendChild(cap);
-  var bands=[["Under 10%","100% / 0%"],["10 to 29%","80% / 20%"],["30 to 45%","75% / 25%"],["Above 45%","70% / 30%"]];
-  var act=r.band==="Under 10%"?0:r.band==="10-29%"?1:r.band==="30-45%"?2:3;
-  var html='<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:14px"><thead><tr>'
-    +'<th style="text-align:left">Project IRR band</th><th style="text-align:left">Investor / Operator</th></tr></thead><tbody>';
-  bands.forEach(function(b,i){var hl=i===act?' style="background:#E6F5FA;font-weight:700;color:#051C2C"':'';
-    html+='<tr'+hl+'><td style="padding:6px 9px;border-bottom:1px solid #DBE2E8">'+b[0]+(i===act?'  (active)':'')+'</td><td style="padding:6px 9px;border-bottom:1px solid #DBE2E8">'+b[1]+'</td></tr>';});
+  cap.textContent="Net profit "+fmt(r.profit)+" through the waterfall: preferred return of "+fmt(r.prefAmt)+" to LP first, then GP catch-up, residual carry at the "+r.band+" tier. GP also earns the "+fmt(r.mgmt)+" management fee (in project costs).";s.appendChild(cap);
+  var pref=wfNum('wf_pref',8),cu=wfNum('wf_cu',100),t1=wfNum('wf_t1',30),t2=wfNum('wf_t2',45),g1=wfNum('wf_g1',20),g2=wfNum('wf_g2',25),g3=wfNum('wf_g3',30);
+  var pp=r.irr*100;var act=pp<=t1?0:pp<=t2?1:2;
+  var rows=[["Return of LP capital","100% LP",-1],["Preferred return ("+pref+"%)","100% LP to hurdle",-1],["GP catch-up ("+cu+"%)","to GP after pref",-1],
+    ["Carry - IRR up to "+t1+"%",(100-g1)+"% LP / "+g1+"% GP",0],["Carry - IRR "+t1+"-"+t2+"%",(100-g2)+"% LP / "+g2+"% GP",1],["Carry - IRR above "+t2+"%",(100-g3)+"% LP / "+g3+"% GP",2]];
+  var html='<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:14px"><thead><tr><th style="text-align:left">Waterfall tier</th><th style="text-align:left">Split</th></tr></thead><tbody>';
+  rows.forEach(function(b){var on=(b[2]===act);var hl=on?' style="background:#E6F5FA;font-weight:700;color:#051C2C"':'';html+='<tr'+hl+'><td style="padding:6px 9px;border-bottom:1px solid #DBE2E8">'+b[0]+(on?'  (active carry)':'')+'</td><td style="padding:6px 9px;border-bottom:1px solid #DBE2E8">'+b[1]+'</td></tr>';});
   html+='</tbody></table>';$('bands').innerHTML=html;
 }
 
@@ -507,7 +526,7 @@ function drawSensGrid(o){
   $('sensgrid').innerHTML=html;
   var cur=calc(o);
   if(sensMode=="investor")
-    $('sensnote').textContent="Investor totals after the Al Mulla JV waterfall. Each cell shows the investor net IRR (top) and net profit (bottom), after the operator promote at that project-IRR band. As returns cross a band the split steps automatically. At "+fmt(o.exit)+" over "+o.hold+" months: investor net IRR "+pct(cur.invIRR)+", net profit "+fmt(cur.invShare)+".";
+    $('sensnote').textContent="LP totals after the LP / GP waterfall. Each cell shows the LP net IRR (top) and net profit (bottom), after the GP promote at that project-IRR band. As returns cross a band the split steps automatically. At "+fmt(o.exit)+" over "+o.hold+" months: LP net IRR "+pct(cur.invIRR)+", net profit "+fmt(cur.invShare)+".";
   else
     $('sensnote').textContent="Rows = months to sell (holding cost scales with time), columns = exit price. At "+fmt(o.exit)+" exit over "+o.hold+" months: project net profit "+fmt(cur.profit)+", IRR "+pct(cur.irr)+". Purchase held at "+fmt(o.purchase)+". Navy outline marks your current inputs.";
 }
@@ -550,10 +569,10 @@ function buildGallery(){
   });
 }
 
-["purchase","reno","ext","exit","hold","mgmt","dld","buyag","selag","mktg","dldfix","sc","util","bua"].forEach(function(id){$(id).addEventListener('input',render)});
+["purchase","reno","ext","exit","hold","mgmt","dld","buyag","selag","mktg","dldfix","sc","util","bua","wf_pref","wf_cu","wf_t1","wf_t2","wf_g1","wf_g2","wf_g3"].forEach(function(id){$(id).addEventListener('input',render)});
 $('reset').addEventListener('click',function(){
   $('purchase').value=BASE.purchase;$('reno').value=BASE.reno;$('ext').value=BASE.ext;$('exit').value=BASE.exit;$('hold').value=BASE.hold;
-  var d={mgmt:"140000",dld:"4.0",buyag:"2.1",selag:"2.1",mktg:"25000",dldfix:"4200",sc:"20000",util:"12000",bua:"4077.59"};
+  var d={mgmt:"140000",dld:"4.0",buyag:"2.1",selag:"2.1",mktg:"25000",dldfix:"4200",sc:"20000",util:"12000",bua:"4077.59",wf_pref:"8.0",wf_cu:"100",wf_t1:"30",wf_t2:"45",wf_g1:"20",wf_g2:"25",wf_g3:"30"};
   for(var k in d){$(k).value=d[k]}render();
 });
 document.querySelectorAll('#senstoggle button').forEach(function(b){b.addEventListener('click',function(){

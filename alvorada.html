@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alvorada 4 - Fix &amp; Flip Investment Memorandum | Palm &amp; Peak</title>
+<style>
+:root{--navy:#051C2C;--navy2:#0C2E44;--teal:#00A9CE;--teal-d:#0089a8;--ink:#1A1F26;
+  --mute:#6B7886;--line:#DBE2E8;--panel:#F4F6F8;--white:#fff;--tealtint:#E6F5FA;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Calibri,Arial,sans-serif;color:var(--ink);background:#e9edf1;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;background:var(--white);box-shadow:0 1px 30px rgba(5,28,44,.12)}
+header{background:var(--navy);color:#fff;padding:30px 40px 26px;position:relative}
+header:after{content:"";position:absolute;left:40px;right:40px;bottom:16px;height:2px;background:var(--teal)}
+header .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700}
+header h1{margin:7px 0 0;font-size:28px;font-weight:700;letter-spacing:.2px}
+header .sub{margin-top:6px;font-size:13.5px;color:#9FB6C2}
+header .brand{position:absolute;top:30px;right:40px;text-align:right}
+header .brand b{font-size:15px}header .brand span{display:block;font-size:11px;color:#9FB6C2;margin-top:3px}
+.body{padding:8px 40px 36px}
+section.blk{padding:26px 0 4px;border-bottom:1px solid var(--line)}
+section.blk:last-of-type{border-bottom:none}
+h2.sec{font-size:12px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--navy);margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--teal)}
+h3.sub{font-size:14px;color:var(--navy);margin:18px 0 8px;font-weight:700}
+p.lead{font-size:15px;color:#2b3540;margin:0 0 12px}
+p{font-size:13.5px;margin:0 0 10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.thesis{list-style:none;padding:0;margin:6px 0 0}
+.thesis li{position:relative;padding:8px 0 8px 26px;font-size:13.5px;border-bottom:1px solid var(--panel)}
+.thesis li:before{content:"";position:absolute;left:2px;top:14px;width:9px;height:9px;background:var(--teal);border-radius:2px}
+/* exec KPI band */
+.execkpi{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin:6px 0 4px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media(max-width:820px){.execkpi{grid-template-columns:repeat(2,1fr)}}
+.execkpi>div{padding:16px 18px;border-right:1px solid var(--line)}
+.execkpi>div:last-child{border-right:none}
+.execkpi .k{font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute);font-weight:700}
+.execkpi .v{font-size:26px;font-weight:700;color:var(--navy);margin-top:5px;font-variant-numeric:tabular-nums}
+.execkpi .v.teal{color:var(--teal-d)}
+.execkpi .s{font-size:11px;color:var(--mute);margin-top:2px}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff}
+.step .n{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;background:var(--navy);color:#fff;border-radius:50%;font-size:13px;font-weight:700}
+.step h4{margin:10px 0 6px;font-size:15px;color:var(--navy)}
+.step p{font-size:12.5px;color:#3a4650;margin:0}
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.ph{position:relative;aspect-ratio:4/3;border:1px dashed #b8c4cd;border-radius:10px;background:linear-gradient(180deg,#f7f9fb,#eef2f5);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9aa8b2;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .glyph{font-size:26px}
+.ph .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(5,28,44,.72);color:#fff;font-size:11px;padding:5px 9px;font-weight:600;text-align:left}
+.ph .tag{position:absolute;top:8px;left:8px;background:var(--teal);color:#fff;font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:4px}
+.galnote{font-size:11.5px;color:var(--mute);font-style:italic;margin-top:10px}
+/* controls */
+.grid{display:grid;grid-template-columns:340px 1fr;gap:26px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.controls{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 18px 8px}
+.ctrl{margin-bottom:16px}
+.ctrl .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+.ctrl label{font-size:12.5px;font-weight:600;color:var(--navy)}
+.ctrl .val{font-size:13px;font-weight:700;color:var(--teal-d);font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:3px;background:var(--line);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--teal);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--teal);cursor:pointer;border:2px solid #fff}
+.reset{width:100%;margin-top:4px;padding:9px;border:1px solid var(--teal);background:#fff;color:var(--teal-d);font-weight:700;font-size:12px;border-radius:8px;cursor:pointer;letter-spacing:.4px}
+.reset:hover{background:var(--tealtint)}
+details.adv{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+details.adv summary{font-size:11.5px;font-weight:700;color:var(--mute);cursor:pointer;letter-spacing:.4px;text-transform:uppercase}
+.advrow{display:flex;justify-content:space-between;align-items:center;margin:9px 0;font-size:12px}
+.advrow input{width:92px;text-align:right;padding:4px 6px;border:1px solid var(--line);border-radius:5px;font-size:12px;font-variant-numeric:tabular-nums}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+@media(max-width:520px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:14px 15px;background:#fff}
+.kpi.hero{background:var(--navy);border-color:var(--navy)}
+.kpi.hero .k{color:#9FB6C2}.kpi.hero .v{color:#fff}
+.kpi.accent{background:var(--tealtint);border-color:#bfe6f1}
+.kpi .k{font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--mute);font-weight:700}
+.kpi .v{font-size:23px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums;color:var(--navy)}
+.kpi .s{font-size:11px;color:var(--mute);margin-top:3px}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 4px}
+@media(max-width:640px){.mini{grid-template-columns:repeat(2,1fr)}}
+.mini .mk{color:var(--mute);font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;font-weight:700}
+.mini .mv{font-weight:700;color:var(--navy);font-size:15px;margin-top:3px;font-variant-numeric:tabular-nums}
+.card{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-top:16px;background:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:11.5px;color:var(--mute)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.toggle{float:right;display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.toggle button{border:none;background:#fff;padding:5px 12px;font-size:11px;font-weight:700;color:var(--mute);cursor:pointer}
+.toggle button.on{background:var(--navy);color:#fff}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+th{background:var(--navy2);color:#fff;font-weight:600;padding:7px 9px;text-align:right;font-size:11px}
+th:first-child,td:first-child{text-align:left}th:nth-child(2),td:nth-child(2){text-align:left}
+td{padding:6px 9px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+tr.twin td{background:var(--tealtint);font-weight:700;color:var(--navy)}
+.facts{width:100%;border-collapse:collapse;font-size:13px}
+.facts td{padding:8px 4px;border-bottom:1px solid var(--panel)}
+.facts td:first-child{color:var(--mute);width:55%}
+.facts td:last-child{text-align:right;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.hm{border-collapse:separate;border-spacing:3px;margin-top:8px}
+.hm th{background:var(--navy2);text-align:center;padding:6px 8px;border-radius:5px}
+.hm td.rh{background:var(--navy2);color:#fff;font-weight:700;text-align:center;border-radius:5px}
+.hm td{text-align:center;border:none;border-radius:5px;font-weight:600;font-variant-numeric:tabular-nums;padding:8px 6px}
+.hm td.cur{outline:3px solid var(--navy);outline-offset:-3px}
+.risk{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.risk th{background:var(--navy2);color:#fff;text-align:left;padding:8px 10px;font-size:11px}
+.risk td{padding:9px 10px;border-bottom:1px solid var(--panel);vertical-align:top}
+.risk td:first-child{font-weight:700;color:var(--navy);width:34%}
+.note{font-size:11px;color:var(--mute);margin-top:10px;font-style:italic}
+.svgwrap{width:100%;overflow-x:auto}
+text{font-family:inherit}
+footer{background:var(--navy);color:#9FB6C2;padding:20px 40px;font-size:11px}
+footer b{color:#fff}
+@media print{body{background:#fff}.wrap{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Investment Memorandum &middot; Residential Fix-and-Flip</div>
+  <h1>Alvorada 4, Arabian Ranches 1</h1>
+  <div class="sub">3-to-4 Bedroom Villa &middot; Emaar &middot; Acquire &middot; Renovate &middot; Extend &middot; Resell</div>
+  <div class="brand"><b>Palm &amp; Peak</b><span>July 2026 &middot; AED &middot; All-equity</span></div>
+</header>
+<div class="body">
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="blk">
+  <h2 class="sec">Executive summary</h2>
+  <p class="lead">Palm &amp; Peak proposes to acquire, renovate and resell a 3-bedroom villa in Alvorada 4, Arabian Ranches 1, an established low-density Emaar community with deep end-user demand. The villa is acquired at AED 9.0M, upgraded through a AED 2.0M full renovation that reconfigures the layout from three bedrooms to four and adds a 300 sqft permitted extension, and resold at a target of AED 16.0M within a 6 to 12 month window.</p>
+  <div class="execkpi">
+    <div><div class="k">Net profit</div><div class="v teal" id="e_profit"></div><div class="s">all-equity</div></div>
+    <div><div class="k">IRR (annualised)</div><div class="v" id="e_irr"></div><div class="s">12-month base</div></div>
+    <div><div class="k">Return on equity</div><div class="v" id="e_roe"></div><div class="s">project life</div></div>
+    <div><div class="k">Equity multiple</div><div class="v" id="e_mult"></div><div class="s">net / equity</div></div>
+    <div><div class="k">Equity required</div><div class="v" id="e_eq"></div><div class="s">all-in</div></div>
+  </div>
+  <p style="margin-top:14px">The exit is evidenced, not assumed. An identical Alvorada 4 / 3-bedroom villa on the same 8,080 sqft plot sold for AED 8.8M in September 2025 and resold, renovated, at exactly AED 16.0M in April 2026, a registered Dubai Land Department transaction. Twenty Alvorada villa sales cleared in the past twelve months, confirming a liquid, repeatable market.</p>
+</section>
+
+<!-- INVESTMENT THESIS -->
+<section class="blk">
+  <div class="two">
+    <div>
+      <h2 class="sec">Investment thesis</h2>
+      <ul class="thesis">
+        <li><b>Proven exit.</b> A same-footprint renovated Alvorada 4 villa printed AED 16.0M three months ago (DLD registered).</li>
+        <li><b>Liquid market.</b> 20 registered Alvorada villa sales in 12 months; well-priced stock in Arabian Ranches typically absorbs in 4 to 8 weeks.</li>
+        <li><b>Controlled value-add.</b> Full interior refit plus a modest, permitted 300 sqft extension at Emaar's tier-1 FAR fee.</li>
+        <li><b>Downside cushion.</b> Unrenovated same-footprint stock trades AED 8.8M to 9.1M, close to our entry.</li>
+        <li><b>Clean structure.</b> All-equity, no financing or refinancing risk; single asset, single exit.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="sec">The asset</h2>
+      <table class="facts">
+        <tr><td>Community</td><td>Alvorada 4, Arabian Ranches 1</td></tr>
+        <tr><td>Developer</td><td>Emaar</td></tr>
+        <tr><td>Configuration</td><td>3-Bed villa (resale, ready)</td></tr>
+        <tr><td>Value-add</td><td style="color:#0089a8">Reconfigured 3-Bed to 4-Bed</td></tr>
+        <tr><td>Plot area</td><td>8,291 sqft</td></tr>
+        <tr><td>BUA - existing</td><td>3,777.59 sqft</td></tr>
+        <tr><td>Extension (permitted)</td><td>+300 sqft</td></tr>
+        <tr><td>BUA - post-extension</td><td>4,077.59 sqft</td></tr>
+        <tr><td>Extension cap (FAR)</td><td>up to 30%</td></tr>
+        <tr><td>Community median (12 mo)</td><td>~2,798 AED/sqft BUA</td></tr>
+        <tr><td>Renovated ceiling comp</td><td>~4,247 AED/sqft BUA</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="blk">
+  <h2 class="sec">The villa</h2>
+  <div class="gallery" id="gallery"></div>
+  <p class="galnote" id="galnote">Photography to be inserted. Provide exterior, plot and interior images and they will be embedded directly into this file for distribution.</p>
+</section>
+
+<!-- BUSINESS PLAN -->
+<section class="blk">
+  <h2 class="sec">Business plan</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h4>Acquire</h4><p>Purchase at AED 9.0M. Plot 8,291 sqft, BUA 3,778 sqft, 3-bedroom. Transfer registered through the Dubai Land Department under an all-equity structure.</p></div>
+    <div class="step"><span class="n">2</span><h4>Renovate &amp; extend</h4><p>AED 2.0M full interior and exterior refit. Reconfigure the layout to convert the 3-bedroom into a 4-bedroom, and add a permitted 300 sqft extension (study over the entrance, en-suite upgrades). Circa 7 months of works.</p></div>
+    <div class="step"><span class="n">3</span><h4>Resell</h4><p>List at a target AED 16.0M, roughly 3,924 AED/sqft on post-extension BUA, in line with the renovated comparable set. Typical absorption 4 to 8 weeks at market price.</p></div>
+  </div>
+</section>
+
+<!-- INTERACTIVE MODEL -->
+<section class="blk">
+  <h2 class="sec">Returns model &nbsp;&middot;&nbsp; interactive</h2>
+  <div class="grid">
+    <div>
+      <div class="controls">
+        <div class="ctrl"><div class="top"><label>Purchase price</label><span class="val" id="v_purchase"></span></div>
+          <input type="range" id="purchase" min="6000000" max="12000000" step="100000" value="9000000"></div>
+        <div class="ctrl"><div class="top"><label>Renovation budget</label><span class="val" id="v_reno"></span></div>
+          <input type="range" id="reno" min="500000" max="4000000" step="50000" value="2000000"></div>
+        <div class="ctrl"><div class="top"><label>Extension (Emaar FAR fee)</label><span class="val" id="v_ext"></span></div>
+          <input type="range" id="ext" min="0" max="1500000" step="50000" value="300000"></div>
+        <div class="ctrl"><div class="top"><label>Exit / resale price</label><span class="val" id="v_exit"></span></div>
+          <input type="range" id="exit" min="12000000" max="20000000" step="100000" value="16000000"></div>
+        <div class="ctrl"><div class="top"><label>Hold period</label><span class="val" id="v_hold"></span></div>
+          <input type="range" id="hold" min="6" max="18" step="1" value="12"></div>
+        <button class="reset" id="reset">Reset to base case</button>
+        <details class="adv">
+          <summary>Fee &amp; cost assumptions</summary>
+          <div class="advrow"><label>Management fee</label><input id="mgmt" value="140000"></div>
+          <div class="advrow"><label>DLD transfer fee %</label><input id="dld" value="4.0"></div>
+          <div class="advrow"><label>Buyer agent incl VAT %</label><input id="buyag" value="2.1"></div>
+          <div class="advrow"><label>Seller agent incl VAT %</label><input id="selag" value="2.1"></div>
+          <div class="advrow"><label>Marketing / staging</label><input id="mktg" value="25000"></div>
+          <div class="advrow"><label>DLD admin + trustee</label><input id="dldfix" value="4200"></div>
+          <div class="advrow"><label>Service charge / yr</label><input id="sc" value="20000"></div>
+          <div class="advrow"><label>Utilities / yr</label><input id="util" value="12000"></div>
+          <div class="advrow"><label>BUA post-extension (sqft)</label><input id="bua" value="4077.59"></div>
+        </details>
+      </div>
+      <p class="note">Move any slider to test the deal live. Base case reproduces the underwriting model exactly.</p>
+    </div>
+    <div>
+      <div class="kpis">
+        <div class="kpi hero"><div class="k">Net profit</div><div class="v" id="o_profit"></div><div class="s" id="o_profit_s" style="color:#9FB6C2"></div></div>
+        <div class="kpi accent"><div class="k">IRR (annualised)</div><div class="v" id="o_irr"></div><div class="s" id="o_irr_s"></div></div>
+        <div class="kpi accent"><div class="k">Return on equity</div><div class="v" id="o_roe"></div><div class="s">project, all-equity</div></div>
+        <div class="kpi"><div class="k">Equity multiple</div><div class="v" id="o_mult"></div><div class="s">net proceeds / equity</div></div>
+        <div class="kpi"><div class="k">Margin on GDV</div><div class="v" id="o_margin"></div><div class="s">profit / exit price</div></div>
+        <div class="kpi"><div class="k">Exit AED/sqft</div><div class="v" id="o_psf"></div><div class="s">on BUA</div></div>
+      </div>
+      <div class="mini">
+        <div><div class="mk">Total equity in</div><div class="mv" id="o_equity"></div></div>
+        <div><div class="mk">Acquisition costs</div><div class="mv" id="o_acq"></div></div>
+        <div><div class="mk">Sale costs</div><div class="mv" id="o_sale"></div></div>
+        <div><div class="mk">Net sale proceeds</div><div class="mv" id="o_net"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h3 class="sub">Where the money goes &nbsp;&middot;&nbsp; cost-to-profit bridge</h3>
+    <div class="svgwrap"><svg id="bridge" viewBox="0 0 1080 150" width="100%" height="150"></svg></div>
+    <div class="legend">
+      <span><i style="background:#051C2C"></i>Purchase</span>
+      <span><i style="background:#284b60"></i>Acquisition costs</span>
+      <span><i style="background:#4a6d80"></i>Renovation + extension</span>
+      <span><i style="background:#7690a0"></i>Holding</span>
+      <span><i style="background:#aab8c1"></i>Management fee</span>
+      <span><i style="background:#00A9CE"></i>Net profit</span>
+    </div>
+  </div>
+</section>
+
+<!-- SENSITIVITY -->
+<section class="blk">
+  <div class="toggle" id="senstoggle">
+    <button data-m="profit" class="on">Net profit</button>
+    <button data-m="irr">IRR</button>
+  </div>
+  <h2 class="sec">Sensitivity &nbsp;&middot;&nbsp; exit price and time to sell</h2>
+  <div class="svgwrap" id="sensgrid"></div>
+  <p class="note" id="sensnote"></p>
+</section>
+
+<!-- COMPS -->
+<section class="blk">
+  <h2 class="sec">Comparable evidence &nbsp;&middot;&nbsp; Alvorada, last 12 months</h2>
+  <div class="svgwrap"><svg id="comps" viewBox="0 0 1080 340" width="100%" height="340"></svg></div>
+  <div class="legend">
+    <span><i style="background:#8aa2ae;border-radius:50%"></i>Registered sale (DLD)</span>
+    <span><i style="background:#00A9CE;border-radius:50%"></i>Twin comp - identical Alvorada 4 / 3BR / 8,080 plot</span>
+    <span><i style="background:#051C2C;border-radius:50%"></i>This villa at your exit price</span>
+  </div>
+  <table id="comptbl">
+    <thead><tr><th>Date</th><th>Phase</th><th>Beds</th><th>Plot sqft</th><th>BUA sqft</th><th>Price (AED)</th><th>AED/sqft BUA</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <p class="note">Source: DXB Interact / Dubai Land Department, registered transactions. AED/sqft computed on BUA. The twin comp (highlighted) sold 8.80M in September 2025 and resold at 16.00M in April 2026 after renovation.</p>
+</section>
+
+<!-- RISK -->
+<section class="blk">
+  <h2 class="sec">Key risks and mitigants</h2>
+  <table class="risk">
+    <thead><tr><th>Risk</th><th>Mitigant</th></tr></thead>
+    <tbody>
+      <tr><td>Exit price sits at the top of the community range</td><td>Anchored to a same-footprint renovated comparable that printed 16.0M in April 2026. Sensitivity shows positive returns down to a 14.0M exit.</td></tr>
+      <tr><td>Renovation cost overrun</td><td>Fixed-scope budget with staged contractor draws and a held contingency; scope defined before acquisition.</td></tr>
+      <tr><td>Time to sell extends</td><td>Holding cost is modest (circa AED 32k per year). IRR remains strong even at a 12-month hold; the grid above quantifies the effect.</td></tr>
+      <tr><td>Broader market softening</td><td>Entry near the unrenovated floor (8.8M to 9.1M) provides a cushion; Arabian Ranches is end-user driven and less cyclical than investor-led districts.</td></tr>
+      <tr><td>Extension approval</td><td>Extension sized within Emaar's standard tier-1 FAR allowance; the base case does not depend on approvals beyond the modest 300 sqft.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- TIMELINE -->
+<section class="blk">
+  <h2 class="sec">Indicative timeline</h2>
+  <p>Month 0: acquire and register transfer. Months 1 to 7: renovation and permitted extension. Months 7 to 9: list, market and secure buyer. Full round-trip targeted within 6 to 12 months, consistent with the September 2025 to April 2026 twin-comp cycle.</p>
+</section>
+
+</div>
+<footer>
+  <b>Palm &amp; Peak</b> &middot; Alvorada 4 fix-and-flip investment memorandum &middot; prepared July 2026 &middot; all figures AED, all-equity basis.<br>
+  Illustrative underwriting based on registered Dubai Land Department comparables. This document is not an offer, a solicitation, or a guarantee of return, and is provided for discussion only.
+</footer>
+</div>
+
+<script>
+var COMPS=[
+ ["13 May 26","Alvorada 2",4,8930,4229,9750000],["07 Apr 26","Alvorada 4",3,8080,3767,16000000],
+ ["09 Mar 26","Alvorada 4",5,9300,4652,13500000],["18 Feb 26","Alvorada 2",3,8405,3778,10100000],
+ ["22 Jan 26","Alvorada 1",4,8078,4229,12800000],["19 Jan 26","Alvorada 3",5,9783,5072,16500000],
+ ["24 Dec 25","Alvorada 2",4,8930,4229,9000000],["05 Dec 25","Alvorada 2",3,9111,3767,12800000],
+ ["07 Nov 25","Alvorada 4",4,8974,4229,6600000],["05 Nov 25","Alvorada 3",3,7777,3767,15800000],
+ ["31 Oct 25","Alvorada 3",3,8218,3767,11250000],["15 Oct 25","Alvorada 3",5,8726,4652,12000000],
+ ["02 Oct 25","Alvorada 2",3,8846,3778,10300000],["02 Oct 25","Alvorada 2",4,8372,4229,11325000],
+ ["11 Sep 25","Alvorada 2",5,10861,4652,13350000],["09 Sep 25","Alvorada 4",4,9273,4248,13400000],
+ ["02 Sep 25","Alvorada 4",3,8080,3767,8800000],["18 Aug 25","Alvorada 2",3,7560,3778,9600000],
+ ["06 Aug 25","Alvorada 4",4,8169,4229,16350000],["04 Aug 25","Alvorada 3",3,8049,3767,9100000]
+];
+var GAL=[["Exterior","Street elevation"],["Exterior","Rear / garden"],["Plot","Aerial / plot outline"],
+ ["Interior","Living / reception"],["Interior","Kitchen"],["Interior","Master suite"]];
+var BASE={purchase:9000000,reno:2000000,ext:300000,exit:16000000,hold:12};
+var NS="http://www.w3.org/2000/svg";
+function $(id){return document.getElementById(id)}
+function num(id){return parseFloat($(id).value)||0}
+function fmt(n){var s=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");return n<0?"("+s+")":s}
+function fmtM(n){return (n/1e6).toFixed(2)+"M"}
+function pct(n){return (n*100).toFixed(1)+"%"}
+
+function calc(o){
+  var dld=num('dld')/100,buyag=num('buyag')/100,selag=num('selag')/100;
+  var mktg=num('mktg'),dldfix=num('dldfix'),sc=num('sc'),util=num('util'),mgmt=num('mgmt');
+  var acq=o.purchase*dld+dldfix+o.purchase*buyag;
+  var capex=o.reno+o.ext;
+  var holding=(sc+util)*o.hold/12;
+  var equity=o.purchase+acq+capex+holding+mgmt;
+  var salecosts=o.exit*selag+mktg;
+  var net=o.exit-salecosts;
+  var profit=net-equity;
+  var irr=Math.pow(net/equity,12/o.hold)-1;
+  return {acq:acq,capex:capex,holding:holding,mgmt:mgmt,equity:equity,salecosts:salecosts,net:net,
+    profit:profit,roe:profit/equity,irr:irr,mult:net/equity,margin:profit/o.exit};
+}
+function readInputs(){return {purchase:num('purchase'),reno:num('reno'),ext:num('ext'),exit:num('exit'),hold:num('hold')}}
+function setText(id,t){$(id).textContent=t}
+var sensMode="profit";
+
+function render(){
+  var o=readInputs();
+  setText('v_purchase',fmt(o.purchase));setText('v_reno',fmt(o.reno));setText('v_ext',fmt(o.ext));
+  setText('v_exit',fmt(o.exit));setText('v_hold',o.hold+" months");
+  var r=calc(o);
+  setText('o_profit',fmt(r.profit));$('o_profit').style.color=r.profit<0?'#9FB6C2':'#fff';
+  setText('o_profit_s',"on "+fmt(r.equity)+" equity");
+  setText('o_irr',pct(r.irr));setText('o_irr_s',o.hold+"-month hold");
+  setText('o_roe',pct(r.roe));setText('o_mult',r.mult.toFixed(2)+"x");setText('o_margin',pct(r.margin));
+  setText('o_psf',fmt(o.exit/num('bua')));
+  setText('o_equity',fmt(r.equity));setText('o_acq',fmt(r.acq));setText('o_sale',fmt(r.salecosts));setText('o_net',fmt(r.net));
+  setText('e_profit',fmt(r.profit));setText('e_irr',pct(r.irr));setText('e_roe',pct(r.roe));
+  setText('e_mult',r.mult.toFixed(2)+"x");setText('e_eq',fmt(r.equity));
+  drawBridge(r,o);drawSensGrid(o);drawComps(o);
+}
+
+function drawBridge(r,o){
+  var s=$('bridge');s.innerHTML="";
+  var x0=20,x1=1060,y=44,h=42;
+  var segs=[["#051C2C",r.equity-r.acq-r.capex-r.holding-r.mgmt],["#284b60",r.acq],["#4a6d80",r.capex],["#7690a0",r.holding],["#aab8c1",r.mgmt],["#00A9CE",Math.max(r.profit,0)]];
+  var total=r.net>0?r.net:1,x=x0;
+  for(var i=0;i<segs.length;i++){
+    var w=(x1-x0)*segs[i][1]/total;if(w<0)w=0;
+    var rect=document.createElementNS(NS,"rect");rect.setAttribute("x",x);rect.setAttribute("y",y);rect.setAttribute("width",Math.max(w,0));rect.setAttribute("height",h);rect.setAttribute("fill",segs[i][0]);s.appendChild(rect);
+    if(w>50){var t=document.createElementNS(NS,"text");t.setAttribute("x",x+w/2);t.setAttribute("y",y+h/2+4);t.setAttribute("fill","#fff");t.setAttribute("text-anchor","middle");t.setAttribute("font-size","12");t.setAttribute("font-weight","700");t.textContent=fmtM(segs[i][1]);s.appendChild(t);}
+    x+=w;
+  }
+  var a=document.createElementNS(NS,"text");a.setAttribute("x",x0);a.setAttribute("y",y-14);a.setAttribute("font-size","12");a.setAttribute("font-weight","700");a.setAttribute("fill","#6B7886");a.textContent="All-in cost  "+fmt(r.equity);s.appendChild(a);
+  var b=document.createElementNS(NS,"text");b.setAttribute("x",x1);b.setAttribute("y",y-14);b.setAttribute("text-anchor","end");b.setAttribute("font-size","12");b.setAttribute("font-weight","700");b.setAttribute("fill","#0089a8");b.textContent="Net proceeds  "+fmt(r.net);s.appendChild(b);
+  var p=document.createElementNS(NS,"text");p.setAttribute("x",(x0+x1)/2);p.setAttribute("y",y+h+26);p.setAttribute("text-anchor","middle");p.setAttribute("font-size","12.5");p.setAttribute("fill","#1A1F26");
+  p.textContent="Gross exit "+fmt(o.exit)+"  less sale costs "+fmt(r.salecosts)+"  =  net proceeds "+fmt(r.net)+"    |    net profit "+fmt(r.profit);s.appendChild(p);
+}
+
+function heatColor(t){t=Math.max(0,Math.min(1,t));var c0=[234,246,250],c1=[0,140,170];
+  return "rgb("+Math.round(c0[0]+(c1[0]-c0[0])*t)+","+Math.round(c0[1]+(c1[1]-c0[1])*t)+","+Math.round(c0[2]+(c1[2]-c0[2])*t)+")";}
+function drawSensGrid(o){
+  var exits=[14000000,14500000,15000000,15500000,16000000,16500000,17000000];
+  var times=[6,7,8,9,10,11,12];
+  var vals=[],flat=[];
+  for(var ti=0;ti<times.length;ti++){vals[ti]=[];for(var ei=0;ei<exits.length;ei++){
+    var r=calc({purchase:o.purchase,reno:o.reno,ext:o.ext,exit:exits[ei],hold:times[ti]});
+    var v=sensMode=="profit"?r.profit:r.irr;vals[ti][ei]=v;flat.push(v);}}
+  var mn=Math.min.apply(null,flat),mx=Math.max.apply(null,flat);
+  var curExit=Math.round(o.exit/500000)*500000;
+  var html='<table class="hm"><thead><tr><th>Sell time \\ Exit</th>';
+  exits.forEach(function(e){html+='<th>'+(e/1e6).toFixed(1)+'M</th>'});
+  html+='</tr></thead><tbody>';
+  for(var ti=0;ti<times.length;ti++){
+    html+='<tr><td class="rh">'+times[ti]+' mo</td>';
+    for(var ei=0;ei<exits.length;ei++){
+      var v=vals[ti][ei],t=(v-mn)/((mx-mn)||1);
+      var txt=sensMode=="profit"?fmtM(v):pct(v);
+      var col=v<0?"#9FB6C2":heatColor(t);var tc=(v>=0&&t>0.62)?"#fff":"#1A1F26";
+      var cur=(exits[ei]==curExit&&times[ti]==o.hold)?"cur":"";
+      html+='<td class="'+cur+'" style="background:'+col+';color:'+tc+'">'+txt+'</td>';
+    }
+    html+='</tr>';
+  }
+  html+='</tbody></table>';
+  $('sensgrid').innerHTML=html;
+  var cur=calc(o);
+  $('sensnote').textContent="Rows = months to sell (holding cost scales with time), columns = exit price. At "
+    +fmt(o.exit)+" exit over "+o.hold+" months: net profit "+fmt(cur.profit)+", IRR "+pct(cur.irr)
+    +". Purchase held at "+fmt(o.purchase)+". Navy outline marks your current inputs when within the grid.";
+}
+
+function drawComps(o){
+  var s=$('comps');s.innerHTML="";
+  var W=1080,H=340,ml=76,mr=24,mt=16,mb=52,x0=3500,x1=5200,y0=6000000,y1=17500000;
+  function X(v){return ml+(W-ml-mr)*(v-x0)/(x1-x0)}
+  function Y(v){return mt+(H-mt-mb)*(1-(v-y0)/(y1-y0))}
+  for(var g=0;g<=5;g++){var v=y0+(y1-y0)*g/5,yy=Y(v);
+    var ln=document.createElementNS(NS,"line");ln.setAttribute("x1",ml);ln.setAttribute("x2",W-mr);ln.setAttribute("y1",yy);ln.setAttribute("y2",yy);ln.setAttribute("stroke","#DBE2E8");s.appendChild(ln);
+    var tl=document.createElementNS(NS,"text");tl.setAttribute("x",ml-8);tl.setAttribute("y",yy+4);tl.setAttribute("text-anchor","end");tl.setAttribute("font-size","11");tl.setAttribute("fill","#6B7886");tl.textContent=(v/1e6)+"M";s.appendChild(tl);}
+  for(var xv=3500;xv<=5200;xv+=500){var xt=document.createElementNS(NS,"text");xt.setAttribute("x",X(xv));xt.setAttribute("y",H-mb+22);xt.setAttribute("text-anchor","middle");xt.setAttribute("font-size","11");xt.setAttribute("fill","#6B7886");xt.textContent=xv;s.appendChild(xt);}
+  COMPS.forEach(function(c){
+    var twin=(c[1]=="Alvorada 4"&&c[2]==3&&c[3]==8080);
+    var cir=document.createElementNS(NS,"circle");cir.setAttribute("cx",X(c[4]));cir.setAttribute("cy",Y(c[5]));cir.setAttribute("r",twin?7:5.5);cir.setAttribute("fill",twin?"#00A9CE":"#8aa2ae");cir.setAttribute("opacity",twin?"1":"0.85");if(twin){cir.setAttribute("stroke","#fff");cir.setAttribute("stroke-width","1.5")}
+    var tt=document.createElementNS(NS,"title");tt.textContent=c[0]+" "+c[1]+" "+c[2]+"BR - "+fmt(c[5])+" AED";cir.appendChild(tt);s.appendChild(cir);
+  });
+  var bua=num('bua'),sx=X(bua),sy=Y(o.exit);
+  var ring=document.createElementNS(NS,"circle");ring.setAttribute("cx",sx);ring.setAttribute("cy",sy);ring.setAttribute("r","9");ring.setAttribute("fill","#051C2C");ring.setAttribute("stroke","#fff");ring.setAttribute("stroke-width","2.5");s.appendChild(ring);
+  var st=document.createElementNS(NS,"text");st.setAttribute("x",sx);st.setAttribute("y",sy-15);st.setAttribute("text-anchor","middle");st.setAttribute("font-size","12");st.setAttribute("font-weight","700");st.setAttribute("fill","#051C2C");st.textContent="This villa "+fmtM(o.exit);s.appendChild(st);
+  var xa=document.createElementNS(NS,"text");xa.setAttribute("x",(ml+W-mr)/2);xa.setAttribute("y",H-8);xa.setAttribute("text-anchor","middle");xa.setAttribute("font-size","11.5");xa.setAttribute("fill","#6B7886");xa.textContent="BUA (sqft)   -   vertical axis: sale price (AED)";s.appendChild(xa);
+}
+
+function buildTable(){
+  var tb=$('comptbl').getElementsByTagName('tbody')[0];tb.innerHTML="";
+  COMPS.forEach(function(c){
+    var twin=(c[1]=="Alvorada 4"&&c[2]==3&&c[3]==8080);
+    var tr=document.createElement('tr');if(twin)tr.className="twin";
+    var psf=Math.round(c[5]/c[4]);
+    tr.innerHTML="<td>"+c[0]+"</td><td>"+c[1]+"</td><td>"+c[2]+"</td><td>"+fmt(c[3])+"</td><td>"+fmt(c[4])+"</td><td>"+fmt(c[5])+"</td><td>"+fmt(psf)+"</td>";
+    tb.appendChild(tr);
+  });
+}
+function buildGallery(){
+  var g=$('gallery');g.innerHTML="";
+  GAL.forEach(function(p){
+    var d=document.createElement('div');d.className="ph";
+    d.innerHTML='<span class="tag">'+p[0]+'</span><span class="glyph">&#9634;</span><span class="cap">'+p[1]+'</span>';
+    g.appendChild(d);
+  });
+}
+
+["purchase","reno","ext","exit","hold","mgmt","dld","buyag","selag","mktg","dldfix","sc","util","bua"].forEach(function(id){$(id).addEventListener('input',render)});
+$('reset').addEventListener('click',function(){
+  $('purchase').value=BASE.purchase;$('reno').value=BASE.reno;$('ext').value=BASE.ext;$('exit').value=BASE.exit;$('hold').value=BASE.hold;
+  var d={mgmt:"140000",dld:"4.0",buyag:"2.1",selag:"2.1",mktg:"25000",dldfix:"4200",sc:"20000",util:"12000",bua:"4077.59"};
+  for(var k in d){$(k).value=d[k]}render();
+});
+document.querySelectorAll('#senstoggle button').forEach(function(b){b.addEventListener('click',function(){
+  document.querySelectorAll('#senstoggle button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');sensMode=b.getAttribute('data-m');render();
+})});
+buildGallery();buildTable();render();
+</script>
+</body>
+</html>

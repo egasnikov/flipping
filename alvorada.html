@@ -252,6 +252,25 @@ footer b{color:#fff}
   </div>
 </section>
 
+<!-- PROFIT DISTRIBUTION -->
+<section class="blk">
+  <h2 class="sec">Profit distribution &nbsp;&middot;&nbsp; Al Mulla JV waterfall</h2>
+  <p>The investor funds 100% of the capital. Profit is split on the project's annualised IRR, stepping the operator's share up as returns rise. This mirrors the Palm &amp; Peak / Al Mulla collaboration agreement in place on Sunrise Bay Tower 2.</p>
+  <div class="kpis">
+    <div class="kpi hero"><div class="k">Investor profit share</div><div class="v" id="d_inv"></div><div class="s" id="d_invpct" style="color:#9FB6C2"></div></div>
+    <div class="kpi accent"><div class="k">Investor net IRR</div><div class="v" id="d_invirr"></div><div class="s" id="d_invmult"></div></div>
+    <div class="kpi accent"><div class="k">Operator promote</div><div class="v" id="d_promote"></div><div class="s" id="d_oppct"></div></div>
+    <div class="kpi"><div class="k">Operator total</div><div class="v" id="d_optot"></div><div class="s">promote + mgmt fee</div></div>
+    <div class="kpi"><div class="k">Active IRR band</div><div class="v" id="d_band" style="font-size:17px"></div><div class="s">of project IRR</div></div>
+    <div class="kpi"><div class="k">Management fee</div><div class="v" id="d_mgmt"></div><div class="s">to operator, at acquisition</div></div>
+  </div>
+  <div class="card">
+    <h3 class="sub">Net profit split &nbsp;&middot;&nbsp; investor vs operator</h3>
+    <div class="svgwrap"><svg id="splitbar" viewBox="0 0 1080 96" width="100%" height="96"></svg></div>
+    <div id="bands"></div>
+  </div>
+</section>
+
 <!-- SENSITIVITY -->
 <section class="blk">
   <div class="toggle" id="senstoggle">
@@ -330,6 +349,8 @@ function fmt(n){var s=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(
 function fmtM(n){return (n/1e6).toFixed(2)+"M"}
 function pct(n){return (n*100).toFixed(1)+"%"}
 
+function opPct(irr){if(irr<0.10)return 0;if(irr<0.30)return 0.20;if(irr<=0.45)return 0.25;return 0.30;}
+function opBand(irr){if(irr<0.10)return "Under 10%";if(irr<0.30)return "10-29%";if(irr<=0.45)return "30-45%";return "Above 45%";}
 function calc(o){
   var dld=num('dld')/100,buyag=num('buyag')/100,selag=num('selag')/100;
   var mktg=num('mktg'),dldfix=num('dldfix'),sc=num('sc'),util=num('util'),mgmt=num('mgmt');
@@ -341,8 +362,11 @@ function calc(o){
   var net=o.exit-salecosts;
   var profit=net-equity;
   var irr=Math.pow(net/equity,12/o.hold)-1;
+  var opct=opPct(irr);var promote=profit>0?profit*opct:0;var invShare=profit-promote;
+  var opTotal=promote+mgmt;var invMult=(equity+invShare)/equity;var invIRR=Math.pow((equity+invShare)/equity,12/o.hold)-1;
   return {acq:acq,capex:capex,holding:holding,mgmt:mgmt,equity:equity,salecosts:salecosts,net:net,
-    profit:profit,roe:profit/equity,irr:irr,mult:net/equity,margin:profit/o.exit};
+    profit:profit,roe:profit/equity,irr:irr,mult:net/equity,margin:profit/o.exit,
+    opct:opct,band:opBand(irr),promote:promote,invShare:invShare,opTotal:opTotal,invMult:invMult,invIRR:invIRR};
 }
 function readInputs(){return {purchase:num('purchase'),reno:num('reno'),ext:num('ext'),exit:num('exit'),hold:num('hold')}}
 function setText(id,t){$(id).textContent=t}
@@ -361,7 +385,31 @@ function render(){
   setText('o_equity',fmt(r.equity));setText('o_acq',fmt(r.acq));setText('o_sale',fmt(r.salecosts));setText('o_net',fmt(r.net));
   setText('e_profit',fmt(r.profit));setText('e_irr',pct(r.irr));setText('e_roe',pct(r.roe));
   setText('e_mult',r.mult.toFixed(2)+"x");setText('e_eq',fmt(r.equity));
-  drawBridge(r,o);drawSensGrid(o);drawComps(o);
+  setText('d_inv',fmt(r.invShare));setText('d_invpct',(r.opct===0?'100%':(100-r.opct*100)+'%')+' of net profit');
+  setText('d_invirr',pct(r.invIRR));setText('d_invmult',r.invMult.toFixed(2)+'x equity');
+  setText('d_promote',fmt(r.promote));setText('d_oppct',(r.opct*100)+'% of net profit');
+  setText('d_optot',fmt(r.opTotal));setText('d_band',r.band+' IRR');setText('d_mgmt',fmt(r.mgmt));
+  drawBridge(r,o);drawSplit(r);drawSensGrid(o);drawComps(o);
+}
+function drawSplit(r){
+  var s=$('splitbar');s.innerHTML="";
+  var x0=20,x1=1060,y=30,h=40,tot=r.profit>0?r.profit:1,x=x0;
+  var segs=[["#051C2C",r.invShare,"Investor "+(100-r.opct*100)+"%"],["#00A9CE",r.promote,"Operator "+(r.opct*100)+"%"]];
+  for(var i=0;i<segs.length;i++){
+    var w=(x1-x0)*segs[i][1]/tot;if(w<0)w=0;
+    var rc=document.createElementNS(NS,"rect");rc.setAttribute("x",x);rc.setAttribute("y",y);rc.setAttribute("width",Math.max(w,0));rc.setAttribute("height",h);rc.setAttribute("fill",segs[i][0]);s.appendChild(rc);
+    if(w>90){var t=document.createElementNS(NS,"text");t.setAttribute("x",x+w/2);t.setAttribute("y",y+h/2+5);t.setAttribute("fill","#fff");t.setAttribute("text-anchor","middle");t.setAttribute("font-size","13");t.setAttribute("font-weight","700");t.textContent=segs[i][2]+"  "+fmt(segs[i][1]);s.appendChild(t);}
+    x+=w;
+  }
+  var cap=document.createElementNS(NS,"text");cap.setAttribute("x",x0);cap.setAttribute("y",y+h+22);cap.setAttribute("font-size","12");cap.setAttribute("fill","#6B7886");
+  cap.textContent="Net profit "+fmt(r.profit)+" split at the "+r.band+" IRR band. Operator also earns the "+fmt(r.mgmt)+" management fee (already in project costs).";s.appendChild(cap);
+  var bands=[["Under 10%","100% / 0%"],["10 to 29%","80% / 20%"],["30 to 45%","75% / 25%"],["Above 45%","70% / 30%"]];
+  var act=r.band==="Under 10%"?0:r.band==="10-29%"?1:r.band==="30-45%"?2:3;
+  var html='<table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:14px"><thead><tr>'
+    +'<th style="text-align:left">Project IRR band</th><th style="text-align:left">Investor / Operator</th></tr></thead><tbody>';
+  bands.forEach(function(b,i){var hl=i===act?' style="background:#E6F5FA;font-weight:700;color:#051C2C"':'';
+    html+='<tr'+hl+'><td style="padding:6px 9px;border-bottom:1px solid #DBE2E8">'+b[0]+(i===act?'  (active)':'')+'</td><td style="padding:6px 9px;border-bottom:1px solid #DBE2E8">'+b[1]+'</td></tr>';});
+  html+='</tbody></table>';$('bands').innerHTML=html;
 }
 
 function drawBridge(r,o){

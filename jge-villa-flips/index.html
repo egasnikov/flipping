@@ -207,7 +207,7 @@ footer b{color:#fff}
         <div class="ctrl"><div class="top"><label>Contingency 10% of works</label></div>
           <div class="seg" id="contmode"><button data-c="1" class="on">On</button><button data-c="0">Off</button></div></div>
         <div class="ctrl"><div class="top"><label for="exit">Exit / resale price</label><span class="val" id="v_exit"></span></div>
-          <input type="range" id="exit" step="250000"></div>
+          <input type="range" id="exit" step="1000"></div>
         <div class="ctrl"><div class="top"><label for="hold">Hold period</label><span class="val" id="v_hold"></span></div>
           <input type="range" id="hold" min="8" max="24" step="1"></div>
         <button class="reset" id="reset" type="button">Reset to base case</button>
@@ -415,7 +415,7 @@ function bindDeal(){
   $('x_summary').innerHTML=d.summary;$('x_exit').innerHTML=d.exit;
   $('x_thesis').innerHTML=d.thesis.map(function(t){return "<li>"+t+"</li>"}).join("");
   $('x_facts').innerHTML=d.facts.map(function(f){return "<tr><td>"+f[0]+"</td><td>"+f[1]+"</td></tr>"}).join("");
-  $('gallery').innerHTML=PHOTOS[d.id].map(function(p,i){return '<div class="ph'+(i==0?' big':'')+'"><span class="tag">'+p[1]+'</span><img src="'+p[0]+'" alt="'+p[2]+'" loading="lazy"><span class="cap">'+p[2]+'</span></div>'}).join("");
+  $('gallery').innerHTML=PHOTOS[d.id].map(function(p,i){return '<div class="ph'+(i==0?' big':'')+'"><span class="tag">'+p[1]+'</span><img src="'+p[0]+'" alt="'+p[2]+'"><span class="cap">'+p[2]+'</span></div>'}).join("");
   setText('galnote',d.name+", "+d.type+" villa, Jumeirah Golf Estates. Photography from Allsopp & Allsopp listing "+d.listing+" and the JGE opportunities pack.");
   var titles=["Acquire","Renovate &amp; extend","Resell"];
   $('x_steps').innerHTML=d.steps.map(function(t,i){return '<div class="step"><span class="n">'+(i+1)+'</span><h4>'+titles[i]+'</h4><p>'+t+'</p></div>'}).join("");

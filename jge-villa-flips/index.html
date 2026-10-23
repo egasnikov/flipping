@@ -129,14 +129,12 @@ tr.hl td{background:var(--tealtint);font-weight:700;color:var(--navy)}
 .wfgrid label{font-size:12px;color:var(--navy);font-weight:600;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
 .wfgrid input{width:52px;text-align:right;padding:3px 5px;border:1px solid var(--line);border-radius:5px;font-size:12px;background:#fff;color:var(--ink)}
 .wfgrid i{font-style:normal;color:var(--mute);font-weight:600}
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:6px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
 @media(max-width:820px){.flow{grid-template-columns:1fr 1fr}}
 .fstep{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff;border-top:3px solid var(--teal);cursor:pointer;text-align:left;font:inherit;color:inherit}
-.fstep.broker{border-top-color:var(--mute);cursor:default;background:var(--panel)}
 .fstep.on{background:var(--tealtint)}
 .fstep .fd{font-size:10.5px;color:var(--mute);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
 .fstep .fv{font-size:19px;color:var(--teal-d);font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
-.fstep.broker .fv{color:var(--navy)}
 .fstep .fs{font-size:12px;color:var(--mute);margin-top:4px}
 .note{font-size:11px;color:var(--mute);margin-top:10px;font-style:italic}
 .svgwrap{width:100%;overflow-x:auto}
@@ -301,13 +299,7 @@ footer b{color:#fff}
   <h2 class="sec">Proof of exit &nbsp;&middot;&nbsp; resale on extended BUA</h2>
   <p id="x_proof"></p>
   <div class="flow" id="flow"></div>
-  <p class="note">Click a scenario to load it into the returns model. Broker figure shown for reference: Allsopp &amp; Allsopp pack, October 2026, net of a 2% selling fee, before finance, holding, management fee and contingency.</p>
-</section>
-
-<section class="blk">
-  <h2 class="sec">Underwriting vs broker pack</h2>
-  <div class="tw"><table id="cmp"></table></div>
-  <p class="note">Broker pack excludes holding costs, contingency, management fee, marketing, VAT on agency and time. The underwriting column runs live from the returns model above.</p>
+  <p class="note">Click a scenario to load it into the returns model.</p>
 </section>
 
 <section class="blk">
@@ -329,7 +321,7 @@ footer b{color:#fff}
 </div>
 <footer class="pad">
   <b>Jumeirah Golf Estates</b> villa fix-and-flip investment memorandum &middot; prepared October 2026 &middot; all figures AED &middot; base case all-equity, senior debt scenario at 75% of property cost, 9-12% p.a.<br>
-  Underwriting based on the Allsopp &amp; Allsopp JGE opportunities pack (October 2026) and live listings L-190619, JGE190019 and L-203737; photography from those listings. Purchase prices are target prices subject to negotiation. This document is not an offer, a solicitation, or a guarantee of return, and is provided for discussion only.
+  Underwriting based on current JGE asking prices and resale evidence. Purchase prices are target prices subject to negotiation. This document is not an offer, a solicitation, or a guarantee of return, and is provided for discussion only.
 </footer>
 </div>
 
@@ -341,7 +333,7 @@ var DEALS=[
   sub:"Portrush Villa &middot; 5 Bed + Maid's &middot; 10,979 sqft Plot &middot; Acquire &middot; Renovate &middot; Extend to 7,073 sqft &middot; Resell",
   ask:22000000,purchase:20000000,reno:7000000,bua0:5894,bua:7073,plot:10979,psf:[5000,5250,5500],hold:12,sc:75000,util:30000,listing:"L-190619",
   summary:"We propose to acquire, renovate, extend and resell a 5-bedroom Portrush villa in Flame Tree Ridge, Jumeirah Golf Estates. The defining feature is the land: a 10,979 sqft plot, among the largest for the type, with a golf course outlook from the principal suite. The villa is acquired at a target AED 20.0M against an AED 22.0M asking price, taken through an AED 7.0M renovation including a 1,179 sqft extension to 7,073 sqft of built-up area, and resold at AED 5,250 per sqft within a 12-month programme.",
-  exit:"The base exit of AED 37.1M applies AED 5,250 per sqft to the extended 7,073 sqft. The broker pack brackets resale at AED 5,000 to 5,500 per sqft (AED 35.4M to 38.9M); entry at AED 20.0M is AED 3,393 per sqft of current BUA and AED 1,822 per sqft of plot. Registered JGE transfers for renovated Portrush and comparable golf-view villas still need to be pulled to confirm the per-foot exit.",
+  exit:"The base exit of AED 37.1M applies AED 5,250 per sqft to the extended 7,073 sqft. Conservative to upside cases run AED 5,000 to 5,500 per sqft (AED 35.4M to 38.9M); entry at AED 20.0M is AED 3,393 per sqft of current BUA and AED 1,822 per sqft of plot. Registered JGE transfers for renovated Portrush and comparable golf-view villas still need to be pulled to confirm the per-foot exit.",
   thesis:["<b>Largest plot of the three.</b> 10,979 sqft against 5,894 sqft of BUA: site coverage of 54% leaves room for the extension without crowding the garden or pool.","<b>Entry below ask.</b> Target AED 20.0M against AED 22.0M listed, 9% below; the listing is marked off-market, so the vendor is reachable without a public bidding process.","<b>Golf course outlook.</b> Rear elevation and principal suite face the course; the garden, pool and outdoor kitchen are already in place.","<b>Most balanced budget.</b> AED 7.0M works equals AED 990 per sqft of finished BUA, a full refurbishment allowance with the extension inside it.","<b>Single asset, single exit.</b> Underwritten all-equity with an optional senior facility; both run live in the model."],
   facts:[["Community","Flame Tree Ridge, JGE"],["Type","Portrush villa"],["Configuration","5 bed + maid's, all en-suite"],["Outlook","Golf course"],["Condition","Original, well kept (full renovation)"],["Plot area","10,979 sqft"],["BUA, existing","5,894 sqft"],["Extension","+1,179 sqft (20%)"],["BUA, post-extension","7,073 sqft"],["Asking price","AED 22,000,000"],["Target purchase","AED 20,000,000"]],
   steps:["Purchase at AED 20.0M against the AED 22.0M ask. Plot 10,979 sqft, BUA 5,894 sqft, 5-bedroom Portrush with maid's room. Transfer through the Dubai Land Department, all-equity or with a senior facility on property cost.","AED 7.0M renovation including a 1,179 sqft extension to 7,073 sqft BUA, subject to master developer NOC and Dubai Municipality permit. Kitchen, bathrooms, joinery, MEP, facade and landscape upgraded to current golf-front specification. Circa 8 to 9 months on site.","List at AED 5,250 per sqft of extended BUA (AED 37.1M). A renovated, extended Portrush on one of the largest plots of the type, with golf views, competes with newer stock at a lower entry."],
@@ -351,7 +343,7 @@ var DEALS=[
   sub:"Royale Villa &middot; 4 Bed &middot; 7,224 sqft Plot &middot; Acquire &middot; Renovate &middot; Extend to 7,931 sqft &middot; Resell",
   ask:19950000,purchase:19500000,reno:8000000,bua0:6609,bua:7931,plot:7224,psf:[4500,4725,4950],hold:12,sc:75000,util:30000,listing:"JGE190019",
   summary:"We propose to acquire, renovate, extend and resell a 4-bedroom Royale villa in Sienna Lakes, Jumeirah Golf Estates, with lake and golf course views across the fairway. The villa is acquired at a target AED 19.5M against an AED 19.95M asking price, taken through an AED 8.0M renovation including a 1,322 sqft extension to 7,931 sqft of built-up area, and resold at AED 4,725 per sqft within a 12-month programme.",
-  exit:"The base exit of AED 37.5M applies AED 4,725 per sqft to the extended 7,931 sqft, a 10% discount to the other two villas that the broker applies for the smaller plot. The broker pack brackets resale at AED 4,500 to 4,950 per sqft (AED 35.7M to 39.3M). ",
+  exit:"The base exit of AED 37.5M applies AED 4,725 per sqft to the extended 7,931 sqft, a 10% discount to the other two villas for the smaller plot. Conservative to upside cases run AED 4,500 to 4,950 per sqft (AED 35.7M to 39.3M). ",
   thesis:["<b>Lake and golf frontage.</b> Pool deck and terrace face the fairway and lake; the outlook is the main value driver in Sienna Lakes.","<b>Lowest entry of the three.</b> AED 19.5M, close to the AED 19.95M ask; AED 2,951 per sqft of current BUA.","<b>Large existing house.</b> 6,609 sqft of BUA before extension, more than Flame Tree Ridge on a smaller plot.","<b>Exit already discounted.</b> Resale underwritten 10% below the JGE golf-villa rate to reflect the plot.","<b>Single asset, single exit.</b> Underwritten all-equity with an optional senior facility; both run live in the model."],
   facts:[["Community","Sienna Lakes, JGE"],["Type","Royale villa"],["Configuration","4 bed"],["Outlook","Lake and golf course"],["Condition","Original (full renovation)"],["Plot area","7,224 sqft"],["BUA, existing","6,609 sqft"],["Extension","+1,322 sqft (20%)"],["BUA, post-extension","7,931 sqft"],["Asking price","AED 19,950,000"],["Target purchase","AED 19,500,000"]],
   steps:["Purchase at AED 19.5M against the AED 19.95M ask. Plot 7,224 sqft, BUA 6,609 sqft, 4-bedroom Royale with lake and golf views. Transfer through the Dubai Land Department, all-equity or with a senior facility on property cost.","AED 8.0M renovation including a 1,322 sqft extension to 7,931 sqft BUA, subject to master developer NOC and Dubai Municipality GFA approval. Full interior, MEP, facade and pool deck upgrade. Circa 8 to 9 months on site.","List at AED 4,725 per sqft of extended BUA (AED 37.5M). Lake-facing renovated stock in Sienna Lakes is scarce; the discount to the JGE rate gives headroom."],
@@ -361,8 +353,8 @@ var DEALS=[
   sub:"Tarragona Villa &middot; 5 Bed + Family Room &middot; 13,408 sqft Plot &middot; Acquire &middot; Renovate &middot; Extend to 12,302 sqft &middot; Resell",
   ask:37500000,purchase:34500000,reno:10000000,bua0:10252,bua:12302,plot:13408,psf:[5000,5250,5500],hold:13,sc:100000,util:40000,listing:"L-203737",
   summary:"We propose to acquire, renovate, extend and resell a 5-bedroom Tarragona villa in Lime Tree Valley, Jumeirah Golf Estates, the largest of the three at 10,252 sqft on a 13,408 sqft plot with golf and lake views. The villa is acquired at a target AED 34.5M against an AED 37.5M asking price, taken through an AED 10.0M renovation including a 2,050 sqft extension to 12,302 sqft of built-up area, and resold at AED 5,250 per sqft within a 13-month programme.",
-  exit:"The base exit of AED 64.6M applies AED 5,250 per sqft to the extended 12,302 sqft. The broker pack brackets resale at AED 5,000 to 5,500 per sqft (AED 61.5M to 67.7M). This is the largest ticket of the three and sits above most JGE registered sales; buyer depth at AED 60M+ in the community must be evidenced before commitment.",
-  thesis:["<b>Scale.</b> 10,252 sqft today, 12,302 sqft after extension: the only villa of the three that reaches estate scale.","<b>Entry 8% below ask.</b> Target AED 34.5M against AED 37.5M listed; AED 3,365 per sqft of current BUA.","<b>Golf and lake frontage.</b> Pool and upper terrace face the lake and fairway.","<b>Already upgraded.</b> Cinema, glass staircase, kitchen and pool are recent; works can focus on the extension and finish rather than a strip-out.","<b>Highest return in the broker pack.</b> 29-42% before costs and time; see the underwriting column for the full-cost view."],
+  exit:"The base exit of AED 64.6M applies AED 5,250 per sqft to the extended 12,302 sqft. Conservative to upside cases run AED 5,000 to 5,500 per sqft (AED 61.5M to 67.7M). This is the largest ticket of the three and sits above most JGE registered sales; buyer depth at AED 60M+ in the community must be evidenced before commitment.",
+  thesis:["<b>Scale.</b> 10,252 sqft today, 12,302 sqft after extension: the only villa of the three that reaches estate scale.","<b>Entry 8% below ask.</b> Target AED 34.5M against AED 37.5M listed; AED 3,365 per sqft of current BUA.","<b>Golf and lake frontage.</b> Pool and upper terrace face the lake and fairway.","<b>Already upgraded.</b> Cinema, glass staircase, kitchen and pool are recent; works can focus on the extension and finish rather than a strip-out."],
   facts:[["Community","Lime Tree Valley, JGE"],["Type","Tarragona villa"],["Configuration","5 bed + family room"],["Outlook","Golf course and lake"],["Condition","Upgraded (cinema, pool, kitchen)"],["Plot area","13,408 sqft"],["BUA, existing","10,252 sqft"],["Extension","+2,050 sqft (20%)"],["BUA, post-extension","12,302 sqft"],["Asking price","AED 37,500,000"],["Target purchase","AED 34,500,000"]],
   steps:["Purchase at AED 34.5M against the AED 37.5M ask. Plot 13,408 sqft, BUA 10,252 sqft, 5-bedroom Tarragona with family room. Transfer through the Dubai Land Department, all-equity or with a senior facility on property cost.","AED 10.0M works including a 2,050 sqft extension to 12,302 sqft BUA, subject to master developer NOC and Dubai Municipality permit. Existing upgrades (cinema, kitchen, pool) retained where they meet spec. Circa 9 to 10 months on site.","List at AED 5,250 per sqft of extended BUA (AED 64.6M). A 12,000+ sqft golf and lake villa is a different product from the standard JGE stock and targets end-user UHNW buyers."],
   risks:[["Buyer depth at AED 60M+","Largest exit of the three; few registered JGE sales at this level. Sensitivity covers -15% on price and up to 6 extra months to sell; break-even exit shown live."],["Works budget looks thin","AED 10.0M equals AED 813 per sqft of finished BUA for a refurbishment plus 2,050 sqft of new build. Offset in part by the recent upgrades; obtain a contractor BOQ before bidding. Contingency held at 10%."],["Value of existing upgrades","Vendor is pricing in the cinema and finishes; the renovation uplift is smaller than on an original villa. Entry discipline matters more here: see max bid."],["Extension approval","Coverage 76% today, 92% after extension; confirm GFA with JGE and DM pre-transfer."]],
@@ -416,12 +408,12 @@ function bindDeal(){
   $('x_thesis').innerHTML=d.thesis.map(function(t){return "<li>"+t+"</li>"}).join("");
   $('x_facts').innerHTML=d.facts.map(function(f){return "<tr><td>"+f[0]+"</td><td>"+f[1]+"</td></tr>"}).join("");
   $('gallery').innerHTML=PHOTOS[d.id].map(function(p,i){return '<div class="ph'+(i==0?' big':'')+'"><span class="tag">'+p[1]+'</span><img src="'+p[0]+'" alt="'+p[2]+'"><span class="cap">'+p[2]+'</span></div>'}).join("");
-  setText('galnote',d.name+", "+d.type+" villa, Jumeirah Golf Estates. Photography from Allsopp & Allsopp listing "+d.listing+" and the JGE opportunities pack.");
+  setText('galnote',d.name+", "+d.type+" villa, Jumeirah Golf Estates. Photography of the villa.");
   var titles=["Acquire","Renovate &amp; extend","Resell"];
   $('x_steps').innerHTML=d.steps.map(function(t,i){return '<div class="step"><span class="n">'+(i+1)+'</span><h4>'+titles[i]+'</h4><p>'+t+'</p></div>'}).join("");
   $('x_risks').innerHTML=d.risks.map(function(r){return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td></tr>"}).join("");
   setText('x_timeline',d.timeline);
-  $('x_proof').innerHTML="Resale is priced per sqft of extended built-up area ("+fmt(d.bua)+" sqft, up from "+fmt(d.bua0)+" sqft). The three scenarios below use the broker's AED "+fmt(d.psf[0])+", "+fmt(d.psf[1])+" and "+fmt(d.psf[2])+" per sqft.";
+  $('x_proof').innerHTML="Resale is priced per sqft of extended built-up area ("+fmt(d.bua)+" sqft, up from "+fmt(d.bua0)+" sqft). The three scenarios below use AED "+fmt(d.psf[0])+", "+fmt(d.psf[1])+" and "+fmt(d.psf[2])+" per sqft.";
   var P=$('purchase');P.min=Math.round(d.purchase*0.8/250000)*250000;P.max=Math.round(d.ask*1.05/250000)*250000;
   var R=$('reno');R.min=Math.round(d.reno*0.6/250000)*250000;R.max=Math.round(d.reno*1.8/250000)*250000;
   var E=$('exit');E.min=Math.round(d.bua*d.psf[0]*0.75/250000)*250000;E.max=Math.round(d.bua*d.psf[2]*1.2/250000)*250000;
@@ -452,7 +444,7 @@ function render(){
   setText('d_promote',fmt(r.promote));setText('d_oppct',(r.effGp*100).toFixed(0)+'% of net profit');
   setText('d_optot',fmt(r.opTotal));setText('d_band',r.band);setText('d_mgmt',fmt(r.mgmt));
   document.querySelectorAll('#dealbar button').forEach(function(b,i){var rr=calc(ST[i],FIN);b.querySelector('em').textContent="Profit "+fmtM(rr.profit)+" · IRR "+pct(rr.irr)+" · LP "+pct(rr.invIRR)});
-  drawBridge(r,s);drawSplit(r);drawSens(s);drawFlow(s,d);drawCmp(r,s,d);drawAll();
+  drawBridge(r,s);drawSplit(r);drawSens(s);drawFlow(s,d);drawAll();
 }
 function rect(s,x,y,w,h,f){var e=document.createElementNS(NS,"rect");e.setAttribute("x",x);e.setAttribute("y",y);e.setAttribute("width",Math.max(w,0));e.setAttribute("height",h);e.setAttribute("fill",f);s.appendChild(e)}
 function txt(s,x,y,t,o){var e=document.createElementNS(NS,"text");e.setAttribute("x",x);e.setAttribute("y",y);for(var k in o)e.setAttribute(k,o[k]);e.textContent=t;s.appendChild(e)}
@@ -488,20 +480,9 @@ function drawSens(s){
   var c=calc(s,FIN);setText('sensnote',"Rows: months to sell (holding and interest scale with time). Columns: exit price at -15% to +15% of the current exit. Navy outline marks current inputs: profit "+fmt(c.profit)+", IRR "+pct(c.irr)+", LP net IRR "+pct(c.invIRR)+".");
 }
 function drawFlow(s,d){
-  var lab=["Conservative","Base case","Upside"],bk=Math.round(d.bua*d.psf[1]*0.98-(d.purchase*1.06+d.reno));
-  $('flow').innerHTML=d.psf.map(function(p,i){var v=Math.round(d.bua*p);return '<button type="button" class="fstep'+(Math.abs(s.exit-v)<200000?' on':'')+'" data-v="'+v+'"><div class="fd">'+lab[i]+'</div><div class="fv">AED '+fmtM(v)+'</div><div class="fs">'+fmt(p)+'/sqft x '+fmt(d.bua)+' sqft</div></button>'}).join("")+
-    '<div class="fstep broker"><div class="fd">Broker base profit</div><div class="fv">AED '+fmtM(bk)+'</div><div class="fs">'+pct(bk/(d.purchase*1.06+d.reno))+' on cost, no time or holding</div></div>';
+  var lab=["Conservative","Base case","Upside"];
+  $('flow').innerHTML=d.psf.map(function(p,i){var v=Math.round(d.bua*p);return '<button type="button" class="fstep'+(Math.abs(s.exit-v)<200000?' on':'')+'" data-v="'+v+'"><div class="fd">'+lab[i]+'</div><div class="fv">AED '+fmtM(v)+'</div><div class="fs">'+fmt(p)+'/sqft x '+fmt(d.bua)+' sqft</div></button>'}).join("");
   document.querySelectorAll('#flow button').forEach(function(b){b.onclick=function(){$('exit').value=b.dataset.v;render()}});
-}
-function drawCmp(r,s,d){
-  var bc=d.purchase*1.06+d.reno,bEx=s.exit,bSell=bEx*0.02,bProfit=bEx-bSell-bc;
-  var rows=[["Gross exit",bEx,s.exit],["Purchase price",d.purchase,s.purchase],["Acquisition costs",d.purchase*0.06,r.acq],["Renovation + extension",d.reno,s.reno],["Contingency",0,r.cont],["Holding (service charge, utilities)",0,r.holding],["Management fee",0,r.mgmt],["Finance cost",0,r.interest],["Sale costs",bSell,r.salecosts]];
-  var h='<thead><tr><th>AED, same exit</th><th>Broker method</th><th>Underwriting</th><th>Difference</th></tr></thead><tbody>';
-  rows.forEach(function(x){h+='<tr><td>'+x[0]+'</td><td>'+fmt(x[1])+'</td><td>'+fmt(x[2])+'</td><td>'+(x[2]-x[1]?fmt(x[2]-x[1]):'')+'</td></tr>'});
-  h+='<tr class="tot"><td>Net profit</td><td>'+fmt(bProfit)+'</td><td>'+fmt(r.profit)+'</td><td>'+fmt(r.profit-bProfit)+'</td></tr>';
-  h+='<tr class="tot"><td>Return on equity</td><td>'+pct(bProfit/bc)+'</td><td>'+pct(r.roe)+'</td><td></td></tr>';
-  h+='<tr><td>Annualised IRR</td><td>not stated</td><td>'+pct(r.irr)+'</td><td></td></tr></tbody>';
-  $('cmp').innerHTML=h;
 }
 function drawAll(){
   var h='<thead><tr><th>Villa</th><th>Purchase</th><th>Ask</th><th>Equity</th><th>Exit</th><th>Net profit</th><th>RoE</th><th>IRR</th><th>LP net IRR</th><th>Max bid</th></tr></thead><tbody>';

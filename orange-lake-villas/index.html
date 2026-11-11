@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Orange Lake Villa Flips</title>
+<title>Orange Lake Villa Flip</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
 :root{--navy:#051C2C;--navy2:#1E5673;--teal:#00A9CE;--teal-d:#00859E;--ink:#1A1F26;
@@ -148,10 +148,10 @@ footer b{color:#fff}
   <div class="eyebrow">Investment Memorandum &middot; Residential Fix-and-Flip &middot; Jumeirah Golf Estates</div>
   <h1 id="h_title"></h1>
   <div class="sub" id="h_sub"></div>
-  <div class="brand"><b>Investment Memorandum</b><span>November 2026 &middot; AED &middot; Two villas, all-equity</span></div>
+  <div class="brand"><b>Investment Memorandum</b><span>November 2026 &middot; AED &middot; All-equity</span></div>
   <div class="rule"></div>
 </header>
-<nav class="dealbar pad" id="dealbar" aria-label="Select opportunity"></nav>
+<nav class="dealbar pad" id="dealbar" aria-label="Select opportunity" style="display:none"></nav>
 <div class="body pad">
 
 <section class="blk">
@@ -220,7 +220,7 @@ footer b{color:#fff}
           <div class="advrow"><label for="plot">Plot area (sqft)</label><input id="plot"></div>
         </details>
       </div>
-      <p class="note">Move any slider to test the deal live. Each opportunity keeps its own settings when you switch.</p>
+      <p class="note">Move any slider to test the deal live.</p>
     </div>
     <div>
       <div class="kpis">
@@ -294,11 +294,7 @@ footer b{color:#fff}
   <p class="note">Click a scenario to load it into the returns model.</p>
 </section>
 
-<section class="blk">
-  <h2 class="sec">Two opportunities side by side</h2>
-  <div class="tw"><table id="all"></table></div>
-  <p class="note">Each opportunity at its current model settings, all-equity.</p>
-</section>
+
 
 <section class="blk">
   <h2 class="sec">Key risks and mitigants</h2>
@@ -329,23 +325,13 @@ var DEALS=[
   facts:[["Community","Orange Lake, JGE"],["Configuration","5 bed + maid's, 5 bath"],["Outlook","Golf course facing"],["Condition","Shell &amp; core, demolition complete"],["Approvals","NOCs paid and approved"],["Plot area","5,937 sqft"],["BUA","4,976 sqft"],["Extension","+296 sqft, to F059 footprint"],["BUA, post-extension","5,272 sqft"],["Asking price","AED 14,500,000"],["Target purchase","AED 12,000,000"]],
   steps:["Purchase at AED 12.0M against the AED 14.5M ask. Plot 5,937 sqft, BUA 4,976 sqft, 5 bedrooms plus maid's room, golf course facing. Transfer through the Dubai Land Department, funded all-equity.","AED 5.0M completion from shell and core plus extension to 5,272 sqft (AED 948 per sqft finished): MEP, kitchen, bathrooms, joinery, facade, pool and landscape to golf-front specification. NOCs in hand for the works; extension permit in parallel. Circa 8 to 9 months on site.","List at AED 4,500 per sqft of extended BUA (AED 23.7M). A full rebuild on a golf-front plot sets the new Orange Lake benchmark above F059 and competes with the best compact golf villas in JGE."],
   risks:[["Hidden condition in the shell","Structure exposed after demolition: commission a structural and MEP survey before transfer; held 10% contingency."],["Completion cost overrun","AED 4.5M fixed-scope budget plus 10% contingency; contractor price fixed before acquisition."],["Exit at F059 level (AED 3,800 per sqft)","Conservative case is the live comparable; break-even shown live; sensitivity covers -15% on price and up to 6 extra months."],["Extension permit","Confirm JGE NOC and DM approval for +296 sqft before transfer; without it, BUA reverts to 4,976 sqft (edit BUA in the model)."],["Vendor will not hold AED 12.0M","Max bid at a 20% return on equity is shown live; walk away above it."],["NOC validity","Confirm the approved NOCs transfer with title and remain in date for the programme."]],
-  timeline:"Month 0: acquire and register transfer. Months 1 to 2: mobilisation and extension permit. Months 2 to 10: completion works and extension. Months 10 to 12: list, market and secure buyer. Full round-trip targeted within 12 months."},
- {id:"opt2",name:"Option Two",type:"Approved extension",short:"5 bed + driver's &middot; elevated golf plot &middot; +1,000 sqft approved",
-  sub:"5 Bed + Driver's &middot; 4,980 sqft BUA &middot; 5,510 sqft Elevated Plot &middot; Acquire &middot; Renovate &middot; Extend to 5,980 sqft &middot; Resell",
-  ask:15250000,purchase:14000000,reno:4500000,bua0:4980,bua:5980,plot:5510,psf:[3800,4250,4700],hold:12,sc:60000,util:25000,
-  summary:"We propose to acquire, renovate, extend and resell a 5-bedroom golf-course-facing villa on an elevated plot in Orange Lake, Jumeirah Golf Estates. A 1,000 sqft extension is already approved with plans and drawings in hand. The villa is acquired at a target AED 14.0M against an AED 15.25M asking price, taken through an AED 4.5M renovation and extension to 5,980 sqft of built-up area, and resold at AED 4,250 per sqft within a 12-month programme.",
-  exit:"The base exit of AED 25.4M applies AED 4,250 per sqft to the extended 5,980 sqft. Conservative to upside cases run AED 3,800 to 4,700 per sqft (AED 22.7M to 28.1M), anchored on F059 in Orange Lake (AED 3,794) and the best registered JGE compact golf villas (AED 4,100 to 4,700). Closest size comparable: a 6,087 sqft golf villa registered at AED 25.0M (AED 4,107 per sqft).",
-  thesis:["<b>Extension already approved.</b> +1,000 sqft (20%) with plans and drawings available: the permitting risk that usually sits on JGE extensions is removed.","<b>Elevated golf-facing plot.</b> Raised position improves the course outlook and privacy, both priced at resale.","<b>Largest finished product.</b> 5,980 sqft after extension, clearing the 5,500 to 6,000 sqft band where turnkey JGE villas are listed at AED 24M to 26M.","<b>Entry 8% below ask.</b> Target AED 14.0M against AED 15.25M; AED 2,341 per sqft of finished BUA.","<b>Single asset, single exit.</b> Underwritten all-equity: the LP funds 100% of the capital."],
-  facts:[["Community","Orange Lake, JGE"],["Configuration","5 bed + driver's, 5 bath"],["Outlook","Golf course facing, elevated plot"],["Condition","Original (full renovation)"],["Approvals","1,000 sqft extension approved"],["Plot area","5,510 sqft"],["BUA, existing","4,980 sqft"],["Extension","+1,000 sqft (20%)"],["BUA, post-extension","5,980 sqft"],["Asking price","AED 15,250,000"],["Target purchase","AED 14,000,000"]],
-  steps:["Purchase at AED 14.0M against the AED 15.25M ask. Plot 5,510 sqft (elevated), BUA 4,980 sqft, 5 bedrooms plus driver's room, golf course facing. Transfer through the Dubai Land Department, funded all-equity.","AED 4.5M renovation including the approved 1,000 sqft extension to 5,980 sqft BUA (AED 753 per sqft finished). Strip-out, MEP, kitchen, bathrooms, facade, pool and landscape to golf-front specification. Circa 8 to 9 months on site.","List at AED 4,250 per sqft of extended BUA (AED 25.4M). A renovated, extended 6,000 sqft golf-front villa competes with turnkey stock at AED 24M to 26M while offering more space."],
-  risks:[["Plot coverage after extension","BUA reaches 109% of plot (two storeys). Approval is in hand; confirm it transfers with title and remains valid."],["Works cost overrun","AED 4.5M budget plus held 10% contingency; extension and renovation priced by one contractor before acquisition."],["Exit below AED 3,850 per sqft","Break-even exit shown live; sensitivity covers -15% on price and up to 6 extra months."],["Thinner entry discount","Target is 8% below ask; max bid at a 20% return on equity is shown live."]],
-  timeline:"Month 0: acquire and register transfer. Month 1: tender on approved drawings and building permit. Months 2 to 10: renovation and extension. Months 10 to 12: list, market and secure buyer. Full round-trip targeted within 12 months."}
+  timeline:"Month 0: acquire and register transfer. Months 1 to 2: mobilisation and extension permit. Months 2 to 10: completion works and extension. Months 10 to 12: list, market and secure buyer. Full round-trip targeted within 12 months."}
 ];
 var COMPS={
  lead:"Registered Dubai Land Department sales. Orange Lake has recorded 13 villa sales in 24 months at a median AED 2,105 per sqft of BUA; most were in standard condition. The new benchmark is F059, agreed at AED 20.0M (AED 3,794 per sqft) after a partial renovation of around AED 2.0M to 2.5M. Across JGE, fully renovated compact golf villas of 4,800 to 6,100 sqft have registered at AED 4,000 to 4,700 per sqft, including AED 24M to 25M sales at 5,150 to 6,100 sqft. A full rebuild in Orange Lake is underwritten at AED 4,500, between F059 and the JGE top prints.",
  dld:[["F059 &middot; 4 bed &middot; agreed Oct 2026","5,272","20.0M","3,794","",1],["F067 &middot; 4 bed &middot; Mar 2025","4,499","15.25M","3,390","",0],["F063 &middot; 4 bed &middot; Nov 2025 &middot; standard","4,509","15.05M","3,337","",0],["F066 &middot; 4 bed &middot; Nov 2025","4,512","14.0M","3,103","",0],["F021 &middot; 5 bed &middot; Oct 2025","7,006","15.25M","2,177","",0],["Orange Lake median, 24 months (13 sales)","&ndash;","14.5M","2,105","",0]],
  ask:[["Lime Tree Valley &middot; 4 bed &middot; Dec 2025",4791,8178,22500000],["Sanctuary Falls &middot; 5 bed &middot; Aug 2026",5154,7735,24000000],["Flame Tree Ridge &middot; 5 bed &middot; Jan 2026",5734,10218,24000000],["Royal Golf Villas &middot; 5 bed &middot; Jul 2026",6087,7659,25000000],["Flame Tree Ridge &middot; 5 bed &middot; Sep 2026",5646,8399,23000000],["Flame Tree Ridge &middot; 5 bed &middot; May 2026",5576,7539,22300000]],
- note:"Source: Dubai Land Department title deed registrations, Jumeirah Golf Estates, to 6 October 2026. AED per sqft is price divided by registered BUA. F059 is agreed and awaiting registration. Option One BUA and plot (4,976 / 5,937 sqft) as per title deed."
+ note:"Source: Dubai Land Department title deed registrations, Jumeirah Golf Estates, to 6 October 2026. AED per sqft is price divided by registered BUA. F059 is agreed and awaiting registration. Villa BUA and plot (4,976 / 5,937 sqft) as per title deed."
 };
 
 var NS="http://www.w3.org/2000/svg";
@@ -391,7 +377,7 @@ function maxBid(s,fin){return solve(s,fin,'purchase',function(r){return r.roe-0.
 
 function bindDeal(){
   var d=DEALS[CUR],s=ST[CUR];
-  setText('h_title',"Orange Lake, JGE · "+d.name);$('h_sub').innerHTML=d.sub;
+  setText('h_title',"Orange Lake, JGE · Golf Course Villa");$('h_sub').innerHTML=d.sub;
   $('x_summary').innerHTML=d.summary;$('x_exit').innerHTML=d.exit;
   $('x_thesis').innerHTML=d.thesis.map(function(t){return "<li>"+t+"</li>"}).join("");
   $('x_facts').innerHTML=d.facts.map(function(f){return "<tr><td>"+f[0]+"</td><td>"+f[1]+"</td></tr>"}).join("");
@@ -476,7 +462,7 @@ function drawComps(){
   $('c_ask').innerHTML='<thead><tr><th>Sale</th><th>BUA</th><th>Plot</th><th>Price</th><th>AED/sqft BUA</th></tr></thead><tbody>'+COMPS.ask.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+fmt(r[1])+'</td><td>'+fmt(r[2])+'</td><td>'+fmtM(r[3])+'</td><td>'+fmt(r[3]/r[1])+'</td></tr>'}).join('')+'</tbody>';
   $('c_note').innerHTML=COMPS.note;
 }
-function drawAll(){
+function drawAll(){if(!document.getElementById("all"))return;
   var h='<thead><tr><th>Opportunity</th><th>Purchase</th><th>Ask</th><th>Equity</th><th>Exit</th><th>Net profit</th><th>RoE</th><th>IRR</th><th>LP net IRR</th><th>Max bid</th></tr></thead><tbody>';
   DEALS.forEach(function(d,i){var s=ST[i],r=calc(s,FIN);h+='<tr'+(i==CUR?' class="hl"':'')+'><td>'+d.name+'</td><td>'+fmtM(s.purchase)+'</td><td>'+fmtM(d.ask)+'</td><td>'+fmtM(r.equity)+'</td><td>'+fmtM(s.exit)+'</td><td>'+fmtM(r.profit)+'</td><td>'+pct(r.roe)+'</td><td>'+pct(r.irr)+'</td><td>'+pct(r.invIRR)+'</td><td>'+fmtM(maxBid(s,FIN))+'</td></tr>'});
   $('all').innerHTML=h+'</tbody>';

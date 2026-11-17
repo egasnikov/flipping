@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>JGE Renovation Villas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{--navy:#051C2C;--navy2:#1E5673;--teal:#00A9CE;--teal-d:#00859E;--ink:#1A1F26;
+  --mute:#6B7886;--line:#DBE2E8;--panel:#F4F6F8;--white:#fff;--tealtint:#DCEFF6;--sub:#9FB6C2;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#e9edf1;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;background:var(--white);box-shadow:0 1px 30px rgba(5,28,44,.12)}
+.pad{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}
+@media(max-width:640px){.pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+header{background:var(--navy);color:#fff;padding-block:30px 30px;position:relative}
+header .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700}
+header h1{margin:7px 0 0;font-size:28px;font-weight:700;letter-spacing:.2px;text-wrap:balance}
+header .sub{margin-top:6px;font-size:13.5px;color:var(--sub)}
+header .brand{position:absolute;top:30px;right:40px;text-align:right}
+@media(max-width:820px){header .brand{position:static;text-align:left;margin-top:12px}}
+header .brand b{font-size:15px}header .brand span{display:block;font-size:11px;color:var(--sub);margin-top:3px}
+.rule{height:2px;background:var(--teal);margin-top:18px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.dealbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--navy);padding-block:0 14px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:720px){.dealbar{grid-template-columns:1fr}}
+.dealbar button{text-align:left;border:1px solid #1E5673;background:#0C2E44;color:#fff;border-radius:8px;padding:10px 14px;cursor:pointer;font:inherit;display:grid;gap:2px}
+.dealbar button b{font-size:14.5px}
+.dealbar button span{font-size:11.5px;color:var(--sub)}
+.dealbar button em{font-style:normal;font-size:12px;color:var(--teal);font-weight:700;font-variant-numeric:tabular-nums}
+.dealbar button.on{background:#fff;color:var(--navy);border-color:#fff;box-shadow:inset 0 -3px 0 var(--teal)}
+.dealbar button.on span{color:var(--mute)}.dealbar button.on em{color:var(--teal-d)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.body{padding-block:8px 36px}
+section.blk{padding:26px 0 4px;border-bottom:1px solid var(--line)}
+section.blk:last-of-type{border-bottom:none}
+h2.sec{font-size:12px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--navy);margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid var(--teal)}
+h3.sub{font-size:14px;color:var(--navy);margin:0 0 8px;font-weight:700}
+p.lead{font-size:15px;color:#2b3540;margin:0 0 12px;max-width:95ch}
+p{font-size:13.5px;margin:0 0 10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.two>div{min-width:0}
+.thesis{list-style:none;padding:0;margin:6px 0 0}
+.thesis li{position:relative;padding:8px 0 8px 26px;font-size:13.5px;border-bottom:1px solid var(--panel)}
+.thesis li:before{content:"";position:absolute;left:2px;top:14px;width:9px;height:9px;background:var(--teal);border-radius:2px}
+.execkpi{display:grid;grid-template-columns:repeat(5,1fr);margin:6px 0 4px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+@media(max-width:820px){.execkpi{grid-template-columns:repeat(2,1fr)}}
+.execkpi>div{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:-1px}
+.execkpi .k{font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--mute);font-weight:700}
+.execkpi .v{font-size:24px;font-weight:700;color:var(--navy);margin-top:5px;font-variant-numeric:tabular-nums}
+.execkpi .v.teal{color:var(--teal-d)}
+.execkpi .s{font-size:11px;color:var(--mute);margin-top:2px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{border:1px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff}
+.step .n{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;background:var(--navy);color:#fff;border-radius:50%;font-size:13px;font-weight:700}
+.step h4{margin:10px 0 6px;font-size:15px;color:var(--navy)}
+.step p{font-size:12.5px;color:#3a4650;margin:0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.ph{position:relative;aspect-ratio:3/2;border-radius:10px;background:var(--panel);overflow:hidden;max-width:100%}
+.ph.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+@media(max-width:820px){.ph.big{grid-column:span 2;grid-row:auto;aspect-ratio:2/1}}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(5,28,44,.72);color:#fff;font-size:11px;padding:5px 9px;font-weight:600}
+.ph .tag{position:absolute;top:8px;left:8px;background:var(--teal);color:#fff;font-size:9.5px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;padding:3px 7px;border-radius:4px}
+.galnote{font-size:11.5px;color:var(--mute);font-style:italic;margin-top:10px}
+.grid{display:grid;grid-template-columns:340px 1fr;gap:26px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.grid>div{min-width:0}
+.controls{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 18px 8px}
+.ctrl{margin-bottom:16px}
+.ctrl .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;gap:8px}
+.ctrl label{font-size:12.5px;font-weight:600;color:var(--navy)}
+.ctrl .val{font-size:13px;font-weight:700;color:var(--teal-d);font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:3px;background:var(--line);outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--teal);cursor:pointer;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--teal);cursor:pointer;border:2px solid #fff}
+.reset{width:100%;margin-top:4px;padding:9px;border:1px solid var(--teal);background:#fff;color:var(--teal-d);font-weight:700;font-size:12px;border-radius:8px;cursor:pointer;letter-spacing:.4px}
+.reset:hover{background:var(--tealtint)}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;width:100%;background:#fff}
+.seg button{flex:1;border:none;background:#fff;padding:9px 0;font-size:12px;font-weight:700;color:var(--mute);cursor:pointer;letter-spacing:.3px}
+.seg button.on{background:var(--navy);color:#fff}
+#debtctrl{border-top:1px solid var(--line);padding-top:12px;margin-top:2px}
+details.adv{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+details.adv summary{font-size:11.5px;font-weight:700;color:var(--mute);cursor:pointer;letter-spacing:.4px;text-transform:uppercase}
+.advrow{display:flex;justify-content:space-between;align-items:center;margin:9px 0;font-size:12px;gap:8px}
+.advrow input{width:100px;text-align:right;padding:4px 6px;border:1px solid var(--line);border-radius:5px;font-size:12px;font-variant-numeric:tabular-nums;background:#fff;color:var(--ink)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+@media(max-width:520px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:14px 15px;background:#fff;min-width:0}
+.kpi.hero{background:var(--navy);border-color:var(--navy)}
+.kpi.hero .k,.kpi.hero .s{color:var(--sub)}.kpi.hero .v{color:#fff}
+.kpi.accent{background:var(--tealtint);border-color:#bfe6f1}
+.kpi .k{font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--mute);font-weight:700}
+.kpi .v{font-size:22px;font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums;color:var(--navy)}
+.kpi .s{font-size:11px;color:var(--mute);margin-top:3px}
+.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 4px}
+@media(max-width:640px){.mini{grid-template-columns:repeat(2,1fr)}}
+.mini .mk{color:var(--mute);font-size:10.5px;text-transform:uppercase;letter-spacing:.4px;font-weight:700}
+.mini .mv{font-weight:700;color:var(--navy);font-size:15px;margin-top:3px;font-variant-numeric:tabular-nums}
+.card{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-top:16px;background:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:11.5px;color:var(--mute)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.toggle{float:right;display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden;margin-left:12px}
+.toggle button{border:none;background:#fff;padding:5px 12px;font-size:11px;font-weight:700;color:var(--mute);cursor:pointer}
+.toggle button.on{background:var(--navy);color:#fff}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+th{background:var(--navy2);color:#fff;font-weight:600;padding:7px 9px;text-align:right;font-size:11px;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td{padding:6px 9px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+tr.tot td{background:#E8EDF1;font-weight:700;color:var(--navy)}
+tr.hl td{background:var(--tealtint);font-weight:700;color:var(--navy)}
+.facts{width:100%;border-collapse:collapse;font-size:13px}
+.facts td{padding:8px 4px;border-bottom:1px solid var(--panel);white-space:normal}
+.facts td:first-child{color:var(--mute);width:50%}
+.facts td:last-child{text-align:right;font-weight:700;color:var(--navy)}
+.hm{border-collapse:separate;border-spacing:3px;margin-top:8px}
+.hm th{background:var(--navy2);text-align:center;padding:6px 8px;border-radius:5px}
+.hm td.rh{background:var(--navy2);color:#fff;font-weight:700;text-align:center;border-radius:5px}
+.hm td{text-align:center;border:none;border-radius:5px;font-weight:600;padding:8px 6px}
+.hm td.cur{outline:3px solid var(--navy);outline-offset:-3px}
+.risk{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.risk th{text-align:left;padding:8px 10px}
+.risk td{padding:9px 10px;border-bottom:1px solid var(--panel);vertical-align:top;white-space:normal;text-align:left}
+.risk td:first-child{font-weight:700;color:var(--navy);width:30%}
+.wfset{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-top:14px;background:var(--panel)}
+.wfhdr{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--mute);margin-bottom:8px}
+.wfgrid{display:flex;flex-wrap:wrap;gap:9px 18px}
+.wfgrid label{font-size:12px;color:var(--navy);font-weight:600;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.wfgrid input{width:52px;text-align:right;padding:3px 5px;border:1px solid var(--line);border-radius:5px;font-size:12px;background:#fff;color:var(--ink)}
+.wfgrid i{font-style:normal;color:var(--mute);font-weight:600}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:6px}
+@media(max-width:820px){.flow{grid-template-columns:1fr 1fr}}
+.fstep{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff;border-top:3px solid var(--teal);cursor:pointer;text-align:left;font:inherit;color:inherit}
+.fstep.on{background:var(--tealtint)}
+.fstep .fd{font-size:10.5px;color:var(--mute);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.fstep .fv{font-size:19px;color:var(--teal-d);font-weight:700;margin-top:6px;font-variant-numeric:tabular-nums}
+.fstep .fs{font-size:12px;color:var(--mute);margin-top:4px}
+.note{font-size:11px;color:var(--mute);margin-top:10px;font-style:italic}
+.svgwrap{width:100%;overflow-x:auto}
+svg text{font-family:inherit}
+footer{background:var(--navy);color:var(--sub);padding-block:20px;font-size:11px}
+footer b{color:#fff}
+</style></head><body>
+
+<div class="wrap">
+<header class="pad">
+  <div class="eyebrow">Investment Memorandum &middot; Residential Fix-and-Flip &middot; Jumeirah Golf Estates</div>
+  <h1 id="h_title"></h1>
+  <div class="sub" id="h_sub"></div>
+  <div class="brand"><b>Investment Memorandum</b><span>November 2026 &middot; AED &middot; Four villas, all-equity</span></div>
+  <div class="rule"></div>
+</header>
+<nav class="dealbar pad" id="dealbar" aria-label="Select villa"></nav>
+<div class="body pad">
+
+<section class="blk">
+  <h2 class="sec">Executive summary</h2>
+  <p class="lead" id="x_summary"></p>
+  <div class="execkpi">
+    <div><div class="k">Net profit</div><div class="v teal" id="e_profit"></div><div class="s" id="e_profit_s"></div></div>
+    <div><div class="k">IRR (annualised)</div><div class="v" id="e_irr"></div><div class="s" id="e_irr_s"></div></div>
+    <div><div class="k">Return on equity</div><div class="v" id="e_roe"></div><div class="s">project life</div></div>
+    <div><div class="k">LP net IRR</div><div class="v" id="e_lp"></div><div class="s">after GP promote</div></div>
+    <div><div class="k">Equity required</div><div class="v" id="e_eq"></div><div class="s">all-in</div></div>
+  </div>
+  <p style="margin-top:14px" id="x_exit"></p>
+</section>
+
+<section class="blk">
+  <div class="two">
+    <div><h2 class="sec">Investment thesis</h2><ul class="thesis" id="x_thesis"></ul></div>
+    <div><h2 class="sec">The asset</h2><table class="facts" id="x_facts"></table></div>
+  </div>
+</section>
+
+<section class="blk">
+  <h2 class="sec">The villa</h2>
+  <div class="gallery" id="gallery"></div>
+  <p class="galnote" id="galnote"></p>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Business plan</h2>
+  <div class="steps" id="x_steps"></div>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Returns model &nbsp;&middot;&nbsp; interactive</h2>
+  <div class="grid">
+    <div>
+      <div class="controls">
+        <div hidden><input type="hidden" id="ltv" value="0"><input type="hidden" id="rate" value="0"><span id="v_ltv"></span><span id="v_rate"></span><div id="debtctrl"></div><div id="finmode"></div></div>
+        <div class="ctrl"><div class="top"><label for="purchase">Purchase price</label><span class="val" id="v_purchase"></span></div>
+          <input type="range" id="purchase" step="250000"></div>
+        <div class="ctrl"><div class="top"><label for="reno">Renovation + extension</label><span class="val" id="v_reno"></span></div>
+          <input type="range" id="reno" step="250000"></div>
+        <div class="ctrl"><div class="top"><label>Contingency 10% of works</label></div>
+          <div class="seg" id="contmode"><button data-c="1" class="on">On</button><button data-c="0">Off</button></div></div>
+        <div class="ctrl"><div class="top"><label for="exit">Exit / resale price</label><span class="val" id="v_exit"></span></div>
+          <input type="range" id="exit" step="1000"></div>
+        <div class="ctrl"><div class="top"><label for="hold">Hold period</label><span class="val" id="v_hold"></span></div>
+          <input type="range" id="hold" min="8" max="24" step="1"></div>
+        <button class="reset" id="reset" type="button">Reset to base case</button>
+        <details class="adv">
+          <summary>Fee &amp; cost assumptions</summary>
+          <div class="advrow"><label for="mgmt">Management fee (GP)</label><input id="mgmt"></div>
+          <div class="advrow"><label for="dld">DLD transfer fee %</label><input id="dld"></div>
+          <div class="advrow"><label for="buyag">Buyer agent incl VAT %</label><input id="buyag"></div>
+          <div class="advrow"><label for="selag">Seller agent incl VAT %</label><input id="selag"></div>
+          <div class="advrow"><label for="mktg">Marketing / staging</label><input id="mktg"></div>
+          <div class="advrow"><label for="dldfix">DLD admin + trustee</label><input id="dldfix"></div>
+          <div class="advrow"><label for="sc">Service charge / yr</label><input id="sc"></div>
+          <div class="advrow"><label for="util">Utilities / yr</label><input id="util"></div>
+          <div class="advrow"><label for="bua">BUA post-extension (sqft)</label><input id="bua"></div>
+          <div class="advrow"><label for="plot">Plot area (sqft)</label><input id="plot"></div>
+        </details>
+      </div>
+      <p class="note">Move any slider to test the deal live. Each villa keeps its own settings when you switch.</p>
+    </div>
+    <div>
+      <div class="kpis">
+        <div class="kpi hero"><div class="k">Net profit</div><div class="v" id="o_profit"></div><div class="s" id="o_profit_s"></div></div>
+        <div class="kpi accent"><div class="k">IRR (annualised)</div><div class="v" id="o_irr"></div><div class="s" id="o_irr_s"></div></div>
+        <div class="kpi accent"><div class="k">Return on equity</div><div class="v" id="o_roe"></div><div class="s" id="o_roe_s"></div></div>
+        <div class="kpi"><div class="k">Equity multiple</div><div class="v" id="o_mult"></div><div class="s">net proceeds / equity</div></div>
+        <div class="kpi"><div class="k">Margin on GDV</div><div class="v" id="o_margin"></div><div class="s">profit / exit price</div></div>
+        <div class="kpi"><div class="k">Exit AED/sqft</div><div class="v" id="o_psf"></div><div class="s" id="o_psf_s"></div></div>
+      </div>
+      <div class="mini">
+        <div><div class="mk">Total equity in</div><div class="mv" id="o_equity"></div></div>
+        <div><div class="mk">Acquisition costs</div><div class="mv" id="o_acq"></div></div>
+        <div><div class="mk">Break-even exit</div><div class="mv" id="o_be"></div></div>
+        <div><div class="mk">Max bid at 20% RoE</div><div class="mv" id="o_maxbid"></div></div>
+      </div>
+      <div hidden id="debtmini"><span id="o_debt"></span><span id="o_int"></span><span id="o_repay"></span><span id="o_cover"></span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3 class="sub">Where the money goes &nbsp;&middot;&nbsp; cost-to-profit bridge</h3>
+    <div class="svgwrap"><svg id="bridge" viewBox="0 0 1080 150" width="100%" height="150" role="img" aria-label="Cost to profit bridge"></svg></div>
+    <div class="legend">
+      <span><i style="background:#051C2C"></i>Purchase</span><span><i style="background:#284b60"></i>Acquisition costs</span>
+      <span><i style="background:#4a6d80"></i>Works + contingency</span><span><i style="background:#7690a0"></i>Holding</span>
+      <span><i style="background:#aab8c1"></i>Management fee</span><span id="lg_int" hidden></span>
+      <span><i style="background:#00A9CE"></i>Net profit</span>
+    </div>
+  </div>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Profit distribution &nbsp;&middot;&nbsp; LP / GP waterfall</h2>
+  <p id="wf_intro"></p>
+  <div class="kpis">
+    <div class="kpi hero"><div class="k">LP profit share</div><div class="v" id="d_inv"></div><div class="s" id="d_invpct"></div></div>
+    <div class="kpi accent"><div class="k">LP net IRR</div><div class="v" id="d_invirr"></div><div class="s" id="d_invmult"></div></div>
+    <div class="kpi accent"><div class="k">GP promote</div><div class="v" id="d_promote"></div><div class="s" id="d_oppct"></div></div>
+    <div class="kpi"><div class="k">GP total</div><div class="v" id="d_optot"></div><div class="s">promote + mgmt fee</div></div>
+    <div class="kpi"><div class="k">Active IRR band</div><div class="v" id="d_band" style="font-size:17px"></div><div class="s">of project IRR</div></div>
+    <div class="kpi"><div class="k">Management fee</div><div class="v" id="d_mgmt"></div><div class="s">to GP, at acquisition</div></div>
+  </div>
+  <div class="wfset">
+    <div class="wfhdr">Waterfall settings</div>
+    <div class="wfgrid">
+      <label>Preferred return (LP) <input id="wf_pref" value="8.0"><i>%</i></label>
+      <label>GP catch-up <input id="wf_cu" value="100"><i>%</i></label>
+      <label>Carry: IRR up to <input id="wf_t1" value="30"><i>%, GP</i> <input id="wf_g1" value="20"><i>%</i></label>
+      <label>then up to <input id="wf_t2" value="45"><i>%, GP</i> <input id="wf_g2" value="25"><i>%</i></label>
+      <label>above that, GP <input id="wf_g3" value="30"><i>%</i></label>
+    </div>
+  </div>
+  <div class="card">
+    <h3 class="sub">Net profit split &nbsp;&middot;&nbsp; LP vs GP</h3>
+    <div class="svgwrap"><svg id="splitbar" viewBox="0 0 1080 96" width="100%" height="96" role="img" aria-label="LP GP split"></svg></div>
+    <div class="tw" id="bands"></div>
+  </div>
+</section>
+
+<section class="blk">
+  <div class="toggle" id="senstoggle"><button data-m="profit" class="on">Project profit</button><button data-m="irr">Project IRR</button><button data-m="investor">LP net</button></div>
+  <h2 class="sec">Sensitivity &nbsp;&middot;&nbsp; exit price and time to sell</h2>
+  <div class="svgwrap" id="sensgrid"></div>
+  <p class="note" id="sensnote"></p>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Proof of exit &nbsp;&middot;&nbsp; resale on finished BUA</h2>
+  <p id="x_proof"></p>
+  <div class="flow" id="flow"></div>
+  <p class="note">Click a scenario to load it into the returns model.</p>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Four villas side by side</h2>
+  <div class="tw"><table id="all"></table></div>
+  <p class="note">Each villa at its current model settings, all-equity.</p>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Key risks and mitigants</h2>
+  <div class="tw"><table class="risk"><thead><tr><th>Risk</th><th>Mitigant</th></tr></thead><tbody id="x_risks"></tbody></table></div>
+</section>
+
+<section class="blk">
+  <h2 class="sec">Indicative timeline</h2>
+  <p id="x_timeline"></p>
+</section>
+
+</div>
+<footer class="pad">
+  <b>Jumeirah Golf Estates</b> villa fix-and-flip investment memorandum &middot; prepared November 2026 &middot; all figures AED &middot; all-equity<br>
+  Underwriting based on current JGE asking prices and resale evidence. Purchase prices are target prices subject to negotiation. This document is not an offer, a solicitation, or a guarantee of return, and is provided for discussion only.
+</footer>
+</div>
+
+<script>
+var PHOTOS={"ltv":[],"ftr":[],"wf":[],"sd":[]};
+var COMMON={mgmt:250000,dld:4.0,buyag:2.1,selag:2.1,mktg:150000,dldfix:4200,ltv:0,rate:0,cont:1};
+var DEALS=[
+ {id:"ltv",name:"Lime Tree Valley",type:"Lime Tree Valley",short:"4 bed + maid's &middot; Earth golf &amp; lake",step2:"Renovate &amp; extend",
+  sub:"Villa &middot; 4 Bed + Maid's &middot; 7,200 sqft Plot &middot; Acquire &middot; Renovate &middot; Extend to 5,500 sqft (5 bed) &middot; Resell",
+  ask:17995000,purchase:17750000,reno:4500000,bua0:4200,bua:5500,plot:7200,psf:[4500,4750,5000],hold:12,sc:60000,util:25000,
+  summary:"We propose to acquire, renovate, extend and resell a 4-bedroom villa in Lime Tree Valley, Jumeirah Golf Estates, facing the Earth golf course and lake. The villa is acquired at a target AED 17.75M against an AED 18.0M asking price, taken through an AED 4.5M renovation that adds a fifth bedroom and lifts built-up area from 4,200 to circa 5,500 sqft, and resold at AED 4,750 per sqft within a 12-month programme.",
+  exit:"The base exit of AED 26.1M applies AED 4,750 per sqft to the extended 5,500 sqft. Conservative to upside cases run AED 4,500 to 5,000 per sqft (AED 24.8M to 27.5M). Entry at AED 17.75M is AED 4,226 per sqft of current BUA, so most of the value is created by the extra 1,300 sqft and the fifth bedroom. Registered JGE transfers for renovated 5-bedroom golf and lake villas to be pulled to confirm the per-foot exit.",
+  thesis:["<b>Lowest ticket of the four.</b> AED 17.75M entry and AED 24.1M all-in; the most liquid exit band in JGE.","<b>Bedroom count is the value lever.</b> 4 to 5 bedrooms moves the villa into the family-buyer segment that sets JGE pricing.","<b>Earth golf and lake outlook.</b> Double frontage, the main value driver in Lime Tree Valley.","<b>Room to grow.</b> 4,200 sqft on a 7,200 sqft plot; site coverage of 58% leaves space for the extension.","<b>Single asset, single exit.</b> Underwritten all-equity: the LP funds 100% of the capital."],
+  facts:[["Community","Lime Tree Valley, JGE"],["Configuration","4 bed + maid's, to 5 bed"],["Outlook","Earth golf course and lake"],["Condition","Original (full renovation)"],["Plot area","7,200 sqft"],["BUA, existing","4,200 sqft"],["Extension","+1,300 sqft (31%)"],["BUA, post-extension","5,500 sqft"],["Asking price","AED 17,995,000"],["Target purchase","AED 17,750,000"]],
+  steps:["Purchase at AED 17.75M against the AED 18.0M ask. Plot 7,200 sqft, BUA 4,200 sqft, 4 bedrooms plus maid's with Earth course and lake views. Transfer through the Dubai Land Department, funded all-equity.","AED 4.5M renovation adding a fifth bedroom and circa 1,300 sqft to reach 5,500 sqft BUA, subject to master developer NOC and Dubai Municipality permit. Kitchen, bathrooms, joinery, MEP, facade and landscape upgraded. Circa 8 months on site.","List at AED 4,750 per sqft of extended BUA (AED 26.1M). A renovated 5-bedroom on golf and lake at this ticket competes with the bulk of JGE family-buyer demand."],
+  risks:[["Extension approval","A 31% uplift is the largest relative extension of the four. Obtain JGE NOC and DM pre-approval before transfer; without the extension the exit at base rate falls to about AED 20.0M, so this is a condition of the offer."],["Works cost overrun","AED 4.5M equals AED 818 per sqft of finished BUA; scope and contractor price fixed pre-acquisition, 10% contingency held."],["Thin entry discount","Target is only 1% below ask; max bid at a 20% return on equity is shown live."],["Exit below AED 4,500 per sqft","Break-even exit shown live; sensitivity covers -15% on price and up to 6 extra months."]],
+  timeline:"Month 0: acquire and register transfer. Months 1 to 2: design, NOC and permits. Months 2 to 10: renovation and extension. Months 10 to 12: list, market and secure buyer. Full round-trip targeted within 12 months."},
+ {id:"ftr",name:"Flame Tree Ridge",type:"Flame Tree Ridge",short:"5 bed + maid's &middot; Fire golf course",step2:"Renovate &amp; extend",
+  sub:"Villa &middot; 5 Bed + Maid's &middot; 10,900 sqft Plot &middot; Acquire &middot; Rebuild &middot; Extend to 8,000 sqft &middot; Resell",
+  ask:21000000,purchase:20000000,reno:6500000,bua0:5800,bua:8000,plot:10900,psf:[4250,4500,4750],hold:14,sc:75000,util:30000,
+  summary:"We propose to acquire, remodel, extend and resell a 5-bedroom villa in Flame Tree Ridge, Jumeirah Golf Estates, on the Fire golf course. The plot is the story: 10,900 sqft, enough to take built-up area from 5,800 to over 8,000 sqft. The villa is acquired at a target AED 20.0M against an AED 21.0M asking price, taken through an AED 6.5M remodel and extension, and resold at AED 4,500 per sqft within a 14-month programme.",
+  exit:"The base exit of AED 36.0M applies AED 4,500 per sqft to the extended 8,000 sqft. Conservative to upside cases run AED 4,250 to 4,750 per sqft (AED 34.0M to 38.0M). The per-foot rate is set below the smaller villas because buyers pay less per sqft as size grows; entry at AED 20.0M is AED 1,835 per sqft of plot.",
+  thesis:["<b>Largest plot of the four.</b> 10,900 sqft against 5,800 sqft of BUA: the extension of circa 2,200 sqft is the main source of value.","<b>Fire course frontage.</b> Fire is the JGE championship course; golf-front stock on it is scarce.","<b>Entry 5% below ask.</b> AED 20.0M against AED 21.0M listed.","<b>Exit underwritten conservatively.</b> AED 4,500 per sqft base, the lowest rate in this memo.","<b>Single asset, single exit.</b> Underwritten all-equity: the LP funds 100% of the capital."],
+  facts:[["Community","Flame Tree Ridge, JGE"],["Configuration","5 bed + maid's"],["Outlook","Fire golf course"],["Condition","Original (full remodel)"],["Plot area","10,900 sqft"],["BUA, existing","5,800 sqft"],["Extension","+2,200 sqft (38%)"],["BUA, post-extension","8,000 sqft"],["Asking price","AED 21,000,000"],["Target purchase","AED 20,000,000"]],
+  steps:["Purchase at AED 20.0M against the AED 21.0M ask. Plot 10,900 sqft, BUA 5,800 sqft, 5 bedrooms plus maid's on the Fire course. Transfer through the Dubai Land Department, funded all-equity.","AED 6.5M remodel and extension to circa 8,000 sqft BUA, subject to master developer NOC and Dubai Municipality GFA approval. New layout to use the plot, full interior, MEP, facade, pool and landscape. Circa 10 months on site.","List at AED 4,500 per sqft of extended BUA (AED 36.0M). An 8,000 sqft remodelled villa on the Fire course is a different product from the original stock around it."],
+  risks:[["GFA approval to 8,000 sqft","The whole thesis rests on the extension. Confirm allowable GFA with JGE and DM before any offer; the model can be rerun at any BUA."],["Works cost overrun","AED 6.5M equals AED 813 per sqft of finished BUA including 2,200 sqft of new build: tight. Contractor BOQ to be fixed before bidding; 10% contingency held."],["Longer programme","Largest structural scope of the four; 14-month hold assumed. Sensitivity covers up to 6 extra months."],["Exit below AED 4,250 per sqft","Break-even exit shown live; sensitivity covers -15% on price."]],
+  timeline:"Month 0: acquire and register transfer. Months 1 to 3: design, NOC and GFA approval. Months 3 to 12: remodel and extension. Months 12 to 14: list, market and secure buyer. Full round-trip targeted within 14 months."},
+ {id:"wf",name:"Wildflower",type:"Wildflower",short:"5 bed + maid's + basement &middot; Earth golf",step2:"Complete &amp; fit out",
+  sub:"Villa &middot; 5 Bed + Maid's + Basement &middot; 9,300 sqft Plot &middot; Acquire Shell &amp; Core &middot; Complete 9,040 sqft &middot; Resell",
+  ask:26000000,purchase:26000000,reno:8000000,bua0:9040,bua:9040,plot:9300,psf:[4750,5000,5250],hold:14,sc:90000,util:30000,
+  summary:"We propose to acquire a 5-bedroom villa with basement in Wildflower, Jumeirah Golf Estates, on the Earth golf course, delivered in shell and core with BUA approvals already paid and a roof terrace approved. The villa is acquired at AED 26.0M, completed and fitted out for AED 8.0M at 9,040 sqft, and resold at AED 5,000 per sqft within a 14-month programme.",
+  exit:"The base exit of AED 45.2M applies AED 5,000 per sqft to the finished 9,040 sqft. Conservative to upside cases run AED 4,750 to 5,250 per sqft (AED 42.9M to 47.5M). Entry at AED 26.0M is AED 2,876 per sqft of BUA, the lowest of the four, because the buyer takes on the fit-out.",
+  thesis:["<b>Approvals already in hand.</b> BUA approvals paid to Wasl and roof terrace granted: the permit risk that sits on the other three villas is largely gone.","<b>Lowest entry per sqft.</b> AED 2,876 per sqft of BUA against AED 3,200 to 4,200 on the other three.","<b>Scale.</b> 9,040 sqft with basement and roof terrace: the largest finished product in this memo.","<b>Earth course frontage.</b> Golf-front plot of 9,300 sqft.","<b>Single asset, single exit.</b> Underwritten all-equity: the LP funds 100% of the capital."],
+  facts:[["Community","Wildflower, JGE"],["Configuration","5 bed + maid's + basement"],["Outlook","Earth golf course"],["Condition","Shell and core"],["Approvals","BUA paid (Wasl), roof terrace approved"],["Plot area","9,300 sqft"],["BUA","9,040 sqft"],["Asking price","AED 26,000,000"],["Target purchase","AED 26,000,000"]],
+  steps:["Purchase at AED 26.0M, at the asking price. Plot 9,300 sqft, BUA 9,040 sqft, 5 bedrooms plus maid's and basement, shell and core. Transfer through the Dubai Land Department, funded all-equity.","AED 8.0M completion and fit-out: MEP, finishes, joinery, kitchen, bathrooms, roof terrace, pool and landscape. No structural extension needed. Circa 10 months on site.","List at AED 5,000 per sqft (AED 45.2M). A newly finished 9,000 sqft golf-front villa with basement and roof terrace competes with new-build product at a lower price."],
+  risks:[["Fit-out budget too light","AED 8.0M equals AED 885 per sqft to finish from shell and core, lean for this end of the market. Full BOQ before offer; at AED 1,100 per sqft the budget would be circa AED 10.0M. Test live with the works slider."],["No entry discount","Purchase at ask. Max bid at 20% return on equity is shown live; negotiate against the fit-out risk the buyer absorbs."],["Shell condition","Structural survey and MEP rough-in check before transfer."],["Buyer depth at AED 45M+","Sensitivity covers -15% on price and up to 6 extra months; break-even exit shown live."]],
+  timeline:"Month 0: acquire and register transfer. Months 1 to 2: design and contractor tender. Months 2 to 12: completion and fit-out. Months 12 to 14: list, market and secure buyer. Full round-trip targeted within 14 months."},
+ {id:"sd",name:"Sundials",type:"Sundials",short:"4 bed + maid's + basement &middot; Earth golf",step2:"Renovate &amp; re-plan",
+  sub:"Villa &middot; 4 Bed + Maid's + Basement &middot; 6,880 sqft Plot &middot; Acquire &middot; Renovate &middot; Re-plan to 5 bed &middot; Resell",
+  ask:23400000,purchase:22000000,reno:5000000,bua0:6900,bua:6900,plot:6880,psf:[4500,4750,5000],hold:12,sc:75000,util:30000,
+  summary:"We propose to acquire, renovate and resell a 4-bedroom villa with basement in Sundials, Jumeirah Golf Estates, on the Earth golf course. The villa is acquired at a target AED 22.0M against an AED 23.4M asking price, taken through an AED 5.0M renovation with a new layout that adds a fifth bedroom within the existing 6,900 sqft, and resold at AED 4,750 per sqft within a 12-month programme.",
+  exit:"The base exit of AED 32.8M applies AED 4,750 per sqft to the existing 6,900 sqft. Conservative to upside cases run AED 4,500 to 5,000 per sqft (AED 31.1M to 34.5M). No extension is assumed, so the value comes from the fifth bedroom and the finish.",
+  thesis:["<b>No GFA risk.</b> The fifth bedroom comes from a re-plan inside the existing envelope, not an extension.","<b>Entry 6% below ask.</b> AED 22.0M against AED 23.4M listed; AED 3,188 per sqft of BUA.","<b>Last original villa on the street.</b> Renovated neighbours set the comparable and show buyers the end product.","<b>Earth course frontage with basement.</b> 6,900 sqft including basement on the golf course.","<b>Single asset, single exit.</b> Underwritten all-equity: the LP funds 100% of the capital."],
+  facts:[["Community","Sundials, JGE"],["Configuration","4 bed + maid's + basement, to 5 bed"],["Outlook","Earth golf course"],["Condition","Original (full renovation)"],["Plot area","6,880 sqft"],["BUA","6,900 sqft (no extension)"],["Asking price","AED 23,400,000"],["Target purchase","AED 22,000,000"]],
+  steps:["Purchase at AED 22.0M against the AED 23.4M ask. Plot 6,880 sqft, BUA 6,900 sqft, 4 bedrooms plus maid's and basement on the Earth course. Transfer through the Dubai Land Department, funded all-equity.","AED 5.0M renovation with a new layout adding a fifth bedroom. Kitchen, bathrooms, joinery, MEP, facade, pool and landscape upgraded. Internal works only, circa 8 months on site.","List at AED 4,750 per sqft (AED 32.8M). Renovated neighbours on the same street give buyers a direct comparable."],
+  risks:[["Thinnest margin of the four","Highest entry per sqft of the non-extended villas; small changes in exit move returns most. Max bid at 20% return on equity shown live."],["Works cost overrun","AED 5.0M equals AED 725 per sqft of BUA for internal works; 10% contingency held."],["Layout change approval","Internal re-plan still needs master developer NOC; confirm before transfer."],["Exit below AED 4,500 per sqft","Break-even exit shown live; sensitivity covers -15% on price and up to 6 extra months."]],
+  timeline:"Month 0: acquire and register transfer. Months 1 to 2: design and NOC. Months 2 to 10: renovation. Months 10 to 12: list, market and secure buyer. Full round-trip targeted within 12 months."}
+];
+var NS="http://www.w3.org/2000/svg";
+function $(id){return document.getElementById(id)}
+function fmt(n){var s=Math.round(Math.abs(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");return n<0?"("+s+")":s}
+function fmtM(n){return (n<0?"(":"")+(Math.abs(n)/1e6).toFixed(2)+"M"+(n<0?")":"")}
+function pct(n){return isFinite(n)?(n*100).toFixed(1)+"%":"n/a"}
+function setText(id,t){$(id).textContent=t}
+
+// per-deal state
+function baseState(d){return {purchase:d.purchase,reno:d.reno,exit:Math.round(d.bua*d.psf[1]),hold:d.hold,cont:COMMON.cont,ltv:COMMON.ltv,rate:COMMON.rate,
+  mgmt:COMMON.mgmt,dld:COMMON.dld,buyag:COMMON.buyag,selag:COMMON.selag,mktg:COMMON.mktg,dldfix:COMMON.dldfix,sc:d.sc,util:d.util,bua:d.bua,plot:d.plot}}
+var ST=DEALS.map(baseState),CUR=0,FIN="equity",sensMode="profit";
+var INPUTS=["purchase","reno","exit","hold","ltv","rate","mgmt","dld","buyag","selag","mktg","dldfix","sc","util","bua","plot"];
+
+function wfNum(id,d){var v=parseFloat($(id).value);return isNaN(v)?d:v}
+function carryPct(irr){var t1=wfNum('wf_t1',30)/100,t2=wfNum('wf_t2',45)/100;if(irr<=t1)return wfNum('wf_g1',20)/100;if(irr<=t2)return wfNum('wf_g2',25)/100;return wfNum('wf_g3',30)/100}
+function bandLabel(irr){var t1=wfNum('wf_t1',30),t2=wfNum('wf_t2',45),p=irr*100;if(p<=t1)return "IRR up to "+t1+"%";if(p<=t2)return "IRR "+t1+"-"+t2+"%";return "IRR above "+t2+"%"}
+function waterfall(E,P,T,irr){var pref=wfNum('wf_pref',8)/100,cu=wfNum('wf_cu',100)/100,c=carryPct(irr);var LP=0,GP=0,rem=Math.max(P,0);
+  var prefAmt=E*(Math.pow(1+pref,T/12)-1);var p1=Math.min(rem,prefAmt);LP+=p1;rem-=p1;
+  if(rem>0&&cu>c){var xt=c*LP/(cu-c);var x=Math.min(rem,xt);GP+=cu*x;LP+=(1-cu)*x;rem-=x}
+  GP+=c*rem;LP+=(1-c)*rem;if(P<0)LP=P;return {LP:LP,GP:GP,carry:c,prefAmt:prefAmt}}
+
+function calc(s,fin){
+  var dld=s.dld/100,buyag=s.buyag/100,selag=s.selag/100;
+  var acq=s.purchase*dld+s.dldfix+s.purchase*buyag;
+  var cont=s.cont?s.reno*0.10:0;var capex=s.reno+cont;
+  var holding=(s.sc+s.util)*s.hold/12;
+  var cost=s.purchase+acq+capex+holding+s.mgmt;
+  var debt=0,interest=0;
+  if(fin=="debt"){debt=(s.purchase+acq)*s.ltv/100;interest=debt*(s.rate/100)*s.hold/12}
+  var equity=cost-debt;var salecosts=s.exit*selag+s.mktg;var net=s.exit-salecosts;
+  var profit=net-cost-interest;var eqProceeds=net-debt-interest;
+  var irr=eqProceeds>0?Math.pow(eqProceeds/equity,12/s.hold)-1:-1;
+  var wf=waterfall(equity,profit,s.hold,irr);var effGp=profit>0?wf.GP/profit:0;
+  var invIRR=(equity+wf.LP)>0?Math.pow((equity+wf.LP)/equity,12/s.hold)-1:-1;
+  return {acq:acq,cont:cont,capex:capex,holding:holding,mgmt:s.mgmt,equity:equity,cost:cost,debt:debt,interest:interest,eqProceeds:eqProceeds,salecosts:salecosts,net:net,
+    profit:profit,roe:profit/equity,irr:irr,mult:eqProceeds/equity,margin:profit/s.exit,effGp:effGp,band:bandLabel(irr),promote:wf.GP,invShare:wf.LP,
+    opTotal:wf.GP+s.mgmt,invMult:(equity+wf.LP)/equity,invIRR:invIRR,prefAmt:wf.prefAmt,cover:debt>0?net/(debt+interest):0}}
+function solve(s,fin,key,target,lo,hi,up){for(var i=0;i<60;i++){var m=(lo+hi)/2,t=Object.assign({},s);t[key]=m;var v=target(calc(t,fin));if(up?v>0:v<0)hi=m;else lo=m}return (lo+hi)/2}
+function breakeven(s,fin){return solve(s,fin,'exit',function(r){return r.profit},s.exit*0.3,s.exit*1.5,true)}
+function maxBid(s,fin){return solve(s,fin,'purchase',function(r){return r.roe-0.20},s.purchase*0.3,s.purchase*1.6,false)}
+
+function bindDeal(){
+  var d=DEALS[CUR],s=ST[CUR];
+  setText('h_title',"Jumeirah Golf Estates · "+d.name);$('h_sub').innerHTML=d.sub;
+  $('x_summary').innerHTML=d.summary;$('x_exit').innerHTML=d.exit;
+  $('x_thesis').innerHTML=d.thesis.map(function(t){return "<li>"+t+"</li>"}).join("");
+  $('x_facts').innerHTML=d.facts.map(function(f){return "<tr><td>"+f[0]+"</td><td>"+f[1]+"</td></tr>"}).join("");
+  $('gallery').innerHTML=PHOTOS[d.id].map(function(p,i){return '<div class="ph'+(i==0?' big':'')+'"><span class="tag">'+p[1]+'</span><img src="'+p[0]+'" alt="'+p[2]+'"><span class="cap">'+p[2]+'</span></div>'}).join("");
+  $('gallery').parentNode.hidden=!PHOTOS[d.id].length;setText('galnote',d.name+", Jumeirah Golf Estates. Photography of the villa.");
+  var titles=["Acquire",d.step2,"Resell"];
+  $('x_steps').innerHTML=d.steps.map(function(t,i){return '<div class="step"><span class="n">'+(i+1)+'</span><h4>'+titles[i]+'</h4><p>'+t+'</p></div>'}).join("");
+  $('x_risks').innerHTML=d.risks.map(function(r){return "<tr><td>"+r[0]+"</td><td>"+r[1]+"</td></tr>"}).join("");
+  setText('x_timeline',d.timeline);
+  $('x_proof').innerHTML="Resale is priced per sqft of finished built-up area ("+fmt(d.bua)+" sqft"+(d.bua>d.bua0?", up from "+fmt(d.bua0)+" sqft":", no extension")+"). The three scenarios below use AED "+fmt(d.psf[0])+", "+fmt(d.psf[1])+" and "+fmt(d.psf[2])+" per sqft.";
+  var P=$('purchase');P.min=Math.round(d.purchase*0.8/250000)*250000;P.max=Math.round(d.ask*1.05/250000)*250000;
+  var R=$('reno');R.min=Math.round(d.reno*0.6/250000)*250000;R.max=Math.round(d.reno*1.8/250000)*250000;
+  var E=$('exit');E.min=Math.round(d.bua*d.psf[0]*0.75/250000)*250000;E.max=Math.round(d.bua*d.psf[2]*1.2/250000)*250000;
+  INPUTS.forEach(function(k){$(k).value=s[k]});
+  document.querySelectorAll('#contmode button').forEach(function(x){x.classList.toggle('on',+x.dataset.c==s.cont)});
+  document.querySelectorAll('#dealbar button').forEach(function(x,i){x.classList.toggle('on',i==CUR);x.setAttribute('aria-pressed',i==CUR)});
+}
+function readInputs(){var s=ST[CUR];INPUTS.forEach(function(k){var v=parseFloat($(k).value);if(!isNaN(v))s[k]=v})}
+
+function render(){
+  readInputs();var d=DEALS[CUR],s=ST[CUR],r=calc(s,FIN),lev=FIN=="debt";
+  setText('v_purchase',fmt(s.purchase));setText('v_reno',fmt(s.reno));setText('v_exit',fmt(s.exit));setText('v_hold',s.hold+" months");
+  setText('v_ltv',s.ltv.toFixed(0)+"%");setText('v_rate',s.rate.toFixed(2)+"%");
+  $('debtctrl').hidden=!lev;$('debtmini').hidden=!lev;$('lg_int').hidden=!lev;
+  var modeLbl=lev?"levered, debt + equity":"project, all-equity";
+  setText('e_profit_s',modeLbl);setText('o_roe_s',modeLbl);setText('e_irr_s',s.hold+"-month base");
+  setText('wf_intro',lev?"The senior lender is repaid first, principal plus rolled-up interest, from sale proceeds. The LP funds 100% of the equity tranche; equity profit is split on the levered equity IRR under the LP / GP waterfall, stepping the GP promote up as returns rise.":"The LP funds 100% of the capital. Profit is split on the project's annualised IRR under a standard LP / GP waterfall, stepping the GP promote up as returns rise.");
+  setText('o_profit',fmt(r.profit));setText('o_profit_s',"on "+fmt(r.equity)+" equity"+(lev?" + "+fmt(r.debt)+" debt":""));
+  setText('o_irr',pct(r.irr));setText('o_irr_s',s.hold+"-month hold"+(lev?", levered":""));
+  setText('o_roe',pct(r.roe));setText('o_mult',r.mult.toFixed(2)+"x");setText('o_margin',pct(r.margin));
+  setText('o_psf',fmt(s.exit/s.bua));setText('o_psf_s',"on BUA · "+fmt(s.exit/s.plot)+" on plot");
+  setText('o_equity',fmt(r.equity));setText('o_acq',fmt(r.acq));
+  var be=breakeven(s,FIN),mb=maxBid(s,FIN);setText('o_be',fmtM(be)+" · "+fmt(be/s.bua)+"/sqft");setText('o_maxbid',fmtM(mb));
+  if(lev){setText('o_debt',fmt(r.debt));setText('o_int',fmt(r.interest));setText('o_repay',fmt(r.debt+r.interest));setText('o_cover',r.cover.toFixed(2)+"x")}
+  setText('e_profit',fmt(r.profit));setText('e_irr',pct(r.irr));setText('e_roe',pct(r.roe));setText('e_lp',pct(r.invIRR));setText('e_eq',fmt(r.equity));
+  setText('d_inv',fmt(r.invShare));setText('d_invpct',((1-r.effGp)*100).toFixed(0)+'% of net profit');
+  setText('d_invirr',pct(r.invIRR));setText('d_invmult',r.invMult.toFixed(2)+'x equity');
+  setText('d_promote',fmt(r.promote));setText('d_oppct',(r.effGp*100).toFixed(0)+'% of net profit');
+  setText('d_optot',fmt(r.opTotal));setText('d_band',r.band);setText('d_mgmt',fmt(r.mgmt));
+  document.querySelectorAll('#dealbar button').forEach(function(b,i){var rr=calc(ST[i],FIN);b.querySelector('em').textContent="Profit "+fmtM(rr.profit)+" · IRR "+pct(rr.irr)+" · LP "+pct(rr.invIRR)});
+  drawBridge(r,s);drawSplit(r);drawSens(s);drawFlow(s,d);drawAll();
+}
+function rect(s,x,y,w,h,f){var e=document.createElementNS(NS,"rect");e.setAttribute("x",x);e.setAttribute("y",y);e.setAttribute("width",Math.max(w,0));e.setAttribute("height",h);e.setAttribute("fill",f);s.appendChild(e)}
+function txt(s,x,y,t,o){var e=document.createElementNS(NS,"text");e.setAttribute("x",x);e.setAttribute("y",y);for(var k in o)e.setAttribute(k,o[k]);e.textContent=t;s.appendChild(e)}
+function drawBridge(r,s){
+  var g=$('bridge');g.innerHTML="";var x0=20,x1=1060,y=44,h=42,tot=r.net>0?r.net:1,x=x0;
+  var segs=[["#051C2C",s.purchase],["#284b60",r.acq],["#4a6d80",r.capex],["#7690a0",r.holding],["#aab8c1",r.mgmt],["#6B7886",r.interest],["#00A9CE",Math.max(r.profit,0)]];
+  segs.forEach(function(sg){var w=(x1-x0)*sg[1]/tot;rect(g,x,y,w,h,sg[0]);if(w>50)txt(g,x+w/2,y+h/2+4,fmtM(sg[1]),{fill:"#fff","text-anchor":"middle","font-size":12,"font-weight":700});x+=Math.max(w,0)});
+  txt(g,x0,y-14,"All-in cost  "+fmt(r.cost+r.interest),{"font-size":12,"font-weight":700,fill:"#6B7886"});
+  txt(g,x1,y-14,"Net proceeds  "+fmt(r.net),{"font-size":12,"font-weight":700,fill:"#00859E","text-anchor":"end"});
+  txt(g,(x0+x1)/2,y+h+26,"Gross exit "+fmt(s.exit)+"  less sale costs "+fmt(r.salecosts)+"  =  net proceeds "+fmt(r.net)+"    |    net profit "+fmt(r.profit),{"text-anchor":"middle","font-size":12.5,fill:"#1A1F26"});
+}
+function drawSplit(r){
+  var g=$('splitbar');g.innerHTML="";var x0=20,x1=1060,y=30,h=40,tot=r.profit>0?r.profit:1,x=x0;
+  [["#051C2C",Math.max(r.invShare,0),"LP "+Math.round((1-r.effGp)*100)+"%"],["#00A9CE",r.promote,"GP "+Math.round(r.effGp*100)+"%"]].forEach(function(sg){var w=(x1-x0)*sg[1]/tot;rect(g,x,y,w,h,sg[0]);if(w>90)txt(g,x+w/2,y+h/2+5,sg[2]+"  "+fmt(sg[1]),{fill:"#fff","text-anchor":"middle","font-size":13,"font-weight":700});x+=Math.max(w,0)});
+  txt(g,x0,y+h+22,"Net profit "+fmt(r.profit)+": preferred return of "+fmt(r.prefAmt)+" to LP first, then GP catch-up, residual carry at the "+r.band+" tier. GP also earns the "+fmt(r.mgmt)+" management fee (in project costs).",{"font-size":12,fill:"#6B7886"});
+  var pref=wfNum('wf_pref',8),cu=wfNum('wf_cu',100),t1=wfNum('wf_t1',30),t2=wfNum('wf_t2',45),g1=wfNum('wf_g1',20),g2=wfNum('wf_g2',25),g3=wfNum('wf_g3',30);
+  var pp=r.irr*100,act=pp<=t1?0:pp<=t2?1:2;
+  var rows=[["Return of LP capital","100% LP",-1],["Preferred return ("+pref+"%)","100% LP to hurdle",-1],["GP catch-up ("+cu+"%)","to GP after pref",-1],["Carry, IRR up to "+t1+"%",(100-g1)+"% LP / "+g1+"% GP",0],["Carry, IRR "+t1+"-"+t2+"%",(100-g2)+"% LP / "+g2+"% GP",1],["Carry, IRR above "+t2+"%",(100-g3)+"% LP / "+g3+"% GP",2]];
+  $('bands').innerHTML='<table><thead><tr><th>Waterfall tier</th><th style="text-align:left">Split</th></tr></thead><tbody>'+rows.map(function(b){return '<tr'+(b[2]===act?' class="hl"':'')+'><td>'+b[0]+(b[2]===act?' (active carry)':'')+'</td><td style="text-align:left">'+b[1]+'</td></tr>'}).join("")+'</tbody></table>';
+}
+function heat(t){t=Math.max(0,Math.min(1,t));var a=[234,246,250],b=[0,140,170];return "rgb("+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(",")+")"}
+function drawSens(s){
+  var d=DEALS[CUR],mults=[0.85,0.9,0.95,1,1.05,1.1,1.15],exits=mults.map(function(m){return Math.round(s.exit*m/250000)*250000});
+  var times=[s.hold-3,s.hold-2,s.hold-1,s.hold,s.hold+2,s.hold+4,s.hold+6].filter(function(t){return t>=6});
+  var grid=[],flat=[];
+  times.forEach(function(t,ti){grid[ti]=exits.map(function(e){var r=calc(Object.assign({},s,{exit:e,hold:t}),FIN);flat.push(sensMode=="profit"?r.profit:sensMode=="irr"?r.irr:r.invIRR);return r})});
+  var mn=Math.min.apply(null,flat),mx=Math.max.apply(null,flat);
+  var h='<table class="hm"><thead><tr><th>Sell time \\ Exit</th>'+exits.map(function(e,i){return '<th>'+(e/1e6).toFixed(1)+'M<br><span style="font-weight:400;opacity:.8">'+fmt(e/s.bua)+'/sqft</span></th>'}).join("")+'</tr></thead><tbody>';
+  times.forEach(function(t,ti){h+='<tr><td class="rh">'+t+' mo</td>';grid[ti].forEach(function(r,ei){var v=sensMode=="profit"?r.profit:sensMode=="irr"?r.irr:r.invIRR;var tt=(v-mn)/((mx-mn)||1);var col=v<0?"#9FB6C2":heat(tt);var tc=(v>=0&&tt>0.62)?"#fff":"#1A1F26";var cur=(ei==3&&t==s.hold)?' cur':'';
+    var tx=sensMode=="profit"?fmtM(r.profit):sensMode=="irr"?pct(r.irr):pct(r.invIRR)+'<div style="font-size:9.5px;opacity:.85">'+fmtM(r.invShare)+'</div>';
+    h+='<td class="'+cur+'" style="background:'+col+';color:'+tc+'">'+tx+'</td>'});h+='</tr>'});
+  $('sensgrid').innerHTML=h+'</tbody></table>';
+  var c=calc(s,FIN);setText('sensnote',"Rows: months to sell (holding and interest scale with time). Columns: exit price at -15% to +15% of the current exit. Navy outline marks current inputs: profit "+fmt(c.profit)+", IRR "+pct(c.irr)+", LP net IRR "+pct(c.invIRR)+".");
+}
+function drawFlow(s,d){
+  var lab=["Conservative","Base case","Upside"];
+  $('flow').innerHTML=d.psf.map(function(p,i){var v=Math.round(d.bua*p);return '<button type="button" class="fstep'+(Math.abs(s.exit-v)<200000?' on':'')+'" data-v="'+v+'"><div class="fd">'+lab[i]+'</div><div class="fv">AED '+fmtM(v)+'</div><div class="fs">'+fmt(p)+'/sqft x '+fmt(d.bua)+' sqft</div></button>'}).join("");
+  document.querySelectorAll('#flow button').forEach(function(b){b.onclick=function(){$('exit').value=b.dataset.v;render()}});
+}
+function drawAll(){
+  var h='<thead><tr><th>Villa</th><th>Purchase</th><th>Ask</th><th>Equity</th><th>Exit</th><th>Net profit</th><th>RoE</th><th>IRR</th><th>LP net IRR</th><th>Max bid</th></tr></thead><tbody>';
+  DEALS.forEach(function(d,i){var s=ST[i],r=calc(s,FIN);h+='<tr'+(i==CUR?' class="hl"':'')+'><td>'+d.name+'</td><td>'+fmtM(s.purchase)+'</td><td>'+fmtM(d.ask)+'</td><td>'+fmtM(r.equity)+'</td><td>'+fmtM(s.exit)+'</td><td>'+fmtM(r.profit)+'</td><td>'+pct(r.roe)+'</td><td>'+pct(r.irr)+'</td><td>'+pct(r.invIRR)+'</td><td>'+fmtM(maxBid(s,FIN))+'</td></tr>'});
+  $('all').innerHTML=h+'</tbody>';
+}
+// wiring
+$('dealbar').innerHTML=DEALS.map(function(d,i){return '<button type="button" data-i="'+i+'"><b>'+d.name+'</b><span>'+d.short+' &middot; entry AED '+(d.purchase/1e6).toFixed(2)+'M</span><em></em></button>'}).join("");
+document.querySelectorAll('#dealbar button').forEach(function(b){b.onclick=function(){CUR=+b.dataset.i;bindDeal();render();try{history.replaceState(null,"","#"+DEALS[CUR].id)}catch(e){}}});
+INPUTS.concat(["wf_pref","wf_cu","wf_t1","wf_t2","wf_g1","wf_g2","wf_g3"]).forEach(function(id){$(id).addEventListener('input',render)});
+function setFin(f){FIN=f;document.querySelectorAll('#finmode button').forEach(function(x){x.classList.toggle('on',x.dataset.f==f)});render()}
+document.querySelectorAll('#finmode button').forEach(function(b){b.onclick=function(){setFin(b.dataset.f)}});
+document.querySelectorAll('#contmode button').forEach(function(b){b.onclick=function(){ST[CUR].cont=+b.dataset.c;document.querySelectorAll('#contmode button').forEach(function(x){x.classList.toggle('on',x===b)});render()}});
+$('reset').onclick=function(){ST[CUR]=baseState(DEALS[CUR]);bindDeal();setFin("equity")};
+document.querySelectorAll('#senstoggle button').forEach(function(b){b.onclick=function(){document.querySelectorAll('#senstoggle button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');sensMode=b.dataset.m;render()}});
+(function(){var h=(location.hash||"").slice(1);DEALS.forEach(function(d,i){if(d.id==h)CUR=i})})();
+bindDeal();render();
+</script>
+
+</body></html>
